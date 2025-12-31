@@ -1,0 +1,356 @@
+
+[
+  {
+    "QID": "CHI-元夕-018",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "青玉案・元夕"
+      }
+    ],
+    "question": [
+      {
+        "text": "解釋以下文句中的粗體字：\n"
+      },
+      {
+        "text": "「**寶馬**」雕車香滿路。",
+        "score-reference": [
+          0
+        ]
+      },
+      {
+        "text": "眾裏尋他千百「**度**」。",
+        "score-reference": [
+          1
+        ]
+      }
+    ],
+    "score": 4,
+    "type": "vocabulary",
+    "answer": [
+      {
+        "text": "寶馬：名貴的駿馬",
+        "label": "point",
+        "score": 2
+      },
+      {
+        "text": "度：次/回",
+        "label": "point",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "QID": "CHI-元夕-019",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "青玉案・元夕"
+      }
+    ],
+    "question": [
+      {
+        "text": "語譯：\n驀然回首，那人卻在、燈火闌珊處。",
+        "score-reference": [
+          0,
+          1,
+          2
+        ]
+      }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      {
+        "text": "不經意",
+        "label": "point",
+        "score": 1
+      },
+      {
+        "text": "回頭看",
+        "label": "point",
+        "score": 1
+      },
+      {
+        "text": "發現那個人在燈火稀疏零落的地方",
+        "label": "point",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "QID": "CHI-元夕-020",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "青玉案・元夕"
+      }
+    ],
+    "question": [
+      {
+        "text": "「星如雨」的「如」字與下列哪句語意相近？\n",
+        "score-reference": [
+          0
+        ]
+      },
+      {
+        "text": "A 江山如畫\nB 雖有如無\nC 如其禮樂\nD 如其仁",
+        "score-reference": [
+          0
+        ]
+      }
+    ],
+    "score": 2,
+    "type": "mc",
+    "answer": [
+      {
+        "text": "A",
+        "label": "point",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "QID": "CHI-元夕-021",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "青玉案・元夕"
+      }
+    ],
+    "question": [
+      {
+        "text": "「東風夜放花千樹」運用了甚麼修辭？",
+        "score-reference": [
+          0
+        ]
+      },
+      {
+        "text": "\n試略加說明。",
+        "score-reference": [
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    "score": 5,
+    "type": "analysis",
+    "answer": [
+      {
+        "text": "誇飾、借喻",
+        "label": "point",
+        "score": 2
+      },
+      {
+        "text": "以「花」借喻花燈",
+        "label": "point",
+        "score": 1
+      },
+      {
+        "text": "誇飾手法將花燈寫成被春風吹開的千樹繁花",
+        "label": "point",
+        "score": 1
+      },
+      {
+        "text": "營造燈火燦爛熱鬧景象",
+        "label": "point",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "QID": "CHI-元夕-022",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "青玉案・元夕"
+      }
+    ],
+    "question": [
+      {
+        "text": "作者所見的元宵景象包括哪些？",
+        "score-reference": [
+          0
+        ]
+      }
+    ],
+    "score": 2,
+    "type": "analysis",
+    "answer": [
+      {
+        "text": "滿天煙花、香氣瀰漫",
+        "label": "point",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "QID": "CHI-元夕-023",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "青玉案・元夕"
+      }
+    ],
+    "question": [
+      {
+        "text": "指出引文的感官描寫：\n(1) 寶馬雕車香滿路；\n(2) 鳳簫聲動...；\n(3) 蛾兒雪柳...。",
+        "score-reference": [0, 1, 2]
+      }
+    ],
+    "score": 6,
+    "type": "analysis",
+    "answer": [
+      {
+        "text": "(1) 視覺、嗅覺",
+        "label": "point",
+        "score": 2
+      },
+      {
+        "text": "(2) 視覺、聽覺",
+        "label": "point",
+        "score": 2
+      },
+      {
+        "text": "(3) 視覺、聽覺、嗅覺",
+        "label": "point",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "QID": "CHI-元夕-024",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "青玉案・元夕"
+      }
+    ],
+    "question": [
+      {
+        "text": "以下哪項並非「那人」形象？\n",
+        "score-reference": [
+          0
+        ]
+      },
+      {
+        "text": "A 自甘寂寞\nB 超凡脫俗\nC 豁達大度\nD 不慕繁華",
+        "score-reference": [
+          0
+        ]
+      }
+    ],
+    "score": 2,
+    "type": "mc",
+    "answer": [
+      {
+        "text": "C",
+        "label": "point",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "QID": "CHI-元夕-025",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "青玉案・元夕"
+      }
+    ],
+    "question": [
+      {
+        "text": "作者如何以襯托手法突顯「那人」？",
+        "score-reference": [
+          0,
+          1,
+          2
+        ]
+      }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      {
+        "text": "藉節日熱鬧氣氛和盛裝婦女的嫵媚",
+        "label": "point",
+        "score": 1
+      },
+      {
+        "text": "反襯「那人」獨處燈火稀疏處的自甘寂寞",
+        "label": "point",
+        "score": 1
+      },
+      {
+        "text": "突顯其超凡脫俗、不慕繁華的形象",
+        "label": "point",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "QID": "CHI-元夕-026",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "青玉案・元夕"
+      }
+    ],
+    "question": [
+      {
+        "text": "判斷：\n(1) 借元宵熱鬧暗諷南宋朝廷不思進取。\n(2) 作者起初尋覓「那人」不獲，感到焦急失望。",
+        "score-reference": [
+          0,
+          1
+        ]
+      }
+    ],
+    "score": 4,
+    "type": "analysis",
+    "answer": [
+      {
+        "text": "正確。諷喻朝廷醉生夢死",
+        "label": "point",
+        "score": 2
+      },
+      {
+        "text": "正確。「眾裏尋他千百度」反映焦急之情",
+        "label": "point",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "QID": "CHI-元夕-027",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "青玉案・元夕"
+      }
+    ],
+    "question": [
+      {
+        "text": "本詞與《山居秋暝》如何顧及動靜描寫？",
+        "score-reference": [
+          0,
+          1
+        ]
+      }
+    ],
+    "score": 6,
+    "type": "analysis",
+    "answer": [
+      {
+        "text": "元夕：上片寫燈火遊人為動；結尾寫「那人」靜立為靜，突顯淡泊形象",
+        "label": "point",
+        "score": 3
+      },
+      {
+        "text": "山居：首聯寫雨後空山為靜；頷頸聯寫泉流、浣女、漁舟為動，景色豐富",
+        "label": "point",
+        "score": 3
+      }
+    ]
+  }
+]

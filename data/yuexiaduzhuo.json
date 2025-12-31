@@ -1,0 +1,98 @@
+
+[
+  {
+    "QID": "CHI-月下獨酌-001",
+    "requires": [{ "type": "knowledge", "topic": "月下獨酌" }],
+    "question": [
+      { "text": "以下哪項最符合李白在《月下獨酌》（其一）的思想感情？\n" },
+      { "text": "A 仕途失意時宜知所進退，隱居山林。\nB 寂寞時也可以寄情幻想，苦中作樂。\nC 即使夢想破滅也要堅持，不屈不撓。\nD 苦難成敗最終歸於虛無，放下為佳。", "score-reference": [0] }
+    ],
+    "score": 2,
+    "type": "analysis",
+    "answer": [
+      { "text": "B", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-月下獨酌-002",
+    "requires": [{ "type": "knowledge", "topic": "月下獨酌" }],
+    "question": [
+      { "text": "《月下獨酌》（其一）運用了反襯手法，試舉一例加以說明。", "score-reference": [0, 1] }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      { "text": "李白運用以熱鬧襯托孤獨的手法，他在花好月圓之夜孤獨無伴，想像與月、影共飲共舞，非常熱鬧。", "label": "point", "score": 2 },
+      { "text": "通過想像把舉目無親的環境寫得熱鬧非常，更能突顯現實中孤獨的氣氛。", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-月下獨酌-003",
+    "requires": [{ "type": "knowledge", "topic": "月下獨酌" }],
+    "question": [
+      { "text": "解釋以下文句中的粗體字：" },
+      { "text": "「獨**酌**無相親」", "score-reference": [0] },
+      { "text": "「行樂須**及**春」", "score-reference": [1] }
+    ],
+    "score": 4,
+    "type": "vocabulary",
+    "answer": [
+      { "text": "酌：飲酒", "label": "point", "score": 2 },
+      { "text": "及：趁着", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-月下獨酌-004",
+    "requires": [{ "type": "knowledge", "topic": "月下獨酌" }],
+    "question": [
+      { "text": "試根據文意把以下文句譯為語體文：「永結無情遊，相期邈雲漢。」", "score-reference": [0, 1, 2] }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      { "text": "跟沒有情感的月亮和影子永遠結伴作無情之遊", "label": "point", "score": 1 },
+      { "text": "相約", "label": "point", "score": 1 },
+      { "text": "在遙遠的天上仙境（或銀河）會面", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-月下獨酌-005",
+    "requires": [{ "type": "knowledge", "topic": "月下獨酌" }],
+    "question": [
+      { "text": "有人認為《月下獨酌》（其一）反映了李白曠達超脫、遺世獨立的高潔品格，你同意嗎？試加以說明。", "score-reference": [0, 1] }
+    ],
+    "score": 4,
+    "type": "analysis",
+    "answer": [
+      { "text": "同意。李白將月 and 影想像為友伴，展現了他自我開解、曠達超脫的心態。", "label": "point", "score": 2 },
+      { "text": "他寧與無情之物為友也不願隨波逐流，可見其鄙棄世俗、追求高潔。", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-月下獨酌-006",
+    "requires": [{ "type": "knowledge", "topic": "月下獨酌" }],
+    "question": [
+      { "text": "李白的詩歌想像奇幻，富於浪漫色彩，《月下獨酌》（其一）怎樣展現這一特點？試加以說明。", "score-reference": [0, 1, 2] }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      { "text": "李白運用擬人法，為「無情」的月 and 影賦予生命和感情。", "label": "point", "score": 1 },
+      { "text": "想像與月、影為伴，並相約在遙遠的銀河相會。", "label": "point", "score": 1 },
+      { "text": "這種把月、影人格化的虛幻描寫，想像雄奇，富於浪漫色彩。", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-月下獨酌-007",
+    "requires": [{ "type": "knowledge", "topic": "月下獨酌" }],
+    "question": [
+      { "text": "《月下獨酌》（其一）運用了以下哪些修辭手法？ ① 比喻 ② 對偶 ③ 對比 ④ 擬人", "score-reference": [0] },
+      { "text": "A ①、② \n B ③、④ \n C ①、②、③ \n D ②、③、④", "score-reference": [0] }
+    ],
+    "score": 2,
+    "type": "analysis",
+    "answer": [
+      { "text": "D", "label": "point", "remark": "對偶、對比、擬人", "score": 2 }
+    ]
+  }
+]

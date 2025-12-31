@@ -1,0 +1,184 @@
+
+[
+  {
+    "QID": "CHI-魚我所欲也-001",
+    "requires": [{ "type": "knowledge", "topic": "魚我所欲也" }],
+    "question": [
+      { "text": "試解釋以下文句中的粗體字。(10分)\n" },
+      { "text": "(1) 所惡有**甚**於死者。", "score-reference": [0] },
+      { "text": "(2) 故患有所不**辟**也。", "score-reference": [1] },
+      { "text": "(3) **如使**人之所欲莫甚於生。", "score-reference": [2] },
+      { "text": "(4) 萬鍾於我何**加**焉？", "score-reference": [3] },
+      { "text": "(5) 今為所識窮乏者**得**我而為之。", "score-reference": [4] }
+    ],
+    "score": 10,
+    "type": "vocabulary",
+    "answer": [
+      { "text": "甚：勝於 / 超過", "label": "point", "score": 2 },
+      { "text": "辟：躲避 / 避開", "label": "point", "score": 2 },
+      { "text": "如使：如果 / 假使", "label": "point", "score": 2 },
+      { "text": "加：益處 / 好處", "label": "point", "score": 2 },
+      { "text": "得：感激 / 恩德", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-魚我所欲也-002",
+    "requires": [{ "type": "knowledge", "topic": "魚我所欲也" }],
+    "question": [
+      { "text": "試根據文意把文句譯為語體文。(6分)\n" },
+      { "text": "\n(1) 呼爾而與之，行道之人弗受。", "score-reference": [0] },
+      { "text": "\n(2) 萬鍾則不辯禮義而受之。", "score-reference": [1] }
+    ],
+    "score": 6,
+    "type": "analysis",
+    "answer": [
+      { "text": "呼喝著給人，路上的行人也不會接受。", "label": "point", "score": 3 },
+      { "text": "為了優厚的俸祿卻不分辨是否合於禮義就接受了。", "label": "point", "score": 3 }
+    ]
+  },
+  {
+    "QID": "CHI-魚我所欲也-003",
+    "requires": [{ "type": "knowledge", "topic": "魚我所欲也" }],
+    "question": [
+      { "text": "孟子以「魚與熊掌」為喻說明甚麼道理？(2分)\n\nA 只有品德高尚的人才明白取捨的道理。\nB 假如生和義不可並存，應捨棄生命而選擇義。\nC 人應該同時追求生命和道義。\nD 生命比食物更重要，但道義比生命更重要。", "score-reference": [0] }
+    ],
+    "score": 2,
+    "type": "analysis",
+    "answer": [
+      { "text": "B", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-魚我所欲也-004",
+    "requires": [{ "type": "knowledge", "topic": "魚我所欲也" }],
+    "question": [
+      { "text": "(1) 「所欲有甚於生者、所惡有甚於死者」分別指甚麼？(2分)", "score-reference": [0] },
+      { "text": "\n(2) 孟子怎樣論證此觀點？(5分)", "score-reference": [1, 2, 3] }
+    ],
+    "score": 7,
+    "type": "analysis",
+    "answer": [
+      { "text": "「所欲」指合義的事；「所惡」指不義的事。", "label": "point", "score": 2 },
+      { "text": "正面論述：指出人渴求義甚於生存，故不為求生而違背義，也不會避開死亡而做不義的事。", "label": "point", "score": 2 },
+      { "text": "反面論述：假使人最渴望的是生存，那甚麼求生手段都會用；若不如此，可見人重視義甚於生。", "label": "point", "score": 2 },
+      { "text": "結論：人最重視的是義，且人皆有此心。", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-魚我所欲也-005",
+    "requires": [{ "type": "knowledge", "topic": "魚我所欲也" }],
+    "question": [
+      { "text": "(1) 「是心」和「本心」意思是否相同？(2分)", "score-reference": [0] },
+      { "text": "\n(2) 「有是心」和「失其本心」的人有何分別？(4分)", "score-reference": [1, 2] }
+    ],
+    "score": 6,
+    "type": "analysis",
+    "answer": [
+      { "text": "相同。皆指羞惡之心（捨生取義之心）。", "label": "point", "score": 2 },
+      { "text": "「有是心」者重義輕生，即使面臨災禍甚至死亡，也不會違背道義。", "label": "point", "score": 2 },
+      { "text": "「失其本心」者見利忘義，受到物欲誘惑（如厚祿、美室）而做出違背道義的事。", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-魚我所欲也-006",
+    "requires": [{ "type": "knowledge", "topic": "魚我所欲也" }],
+    "question": [
+      { "text": "試綜合全文內容，判斷以下陳述：\n" },
+      { "text": "\n(1) 「行道之人」雖然貧窮，但仍有「捨生取義」的表現。", "score-reference": [0] },
+      { "text": "\n(2) 孟子認為「本心」是指每個人天生具備的「羞惡之心」。", "score-reference": [1] }
+    ],
+    "score": 4,
+    "type": "analysis",
+    "answer": [
+      { "text": "正確。行道之人即使餓死也不受「呼爾而與之」的食物，是重義表現。", "label": "point", "score": 2 },
+      { "text": "正確。本心即指人生而有之的善良本性。", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-魚我所欲也-007",
+    "requires": [{ "type": "knowledge", "topic": "魚我所欲也" }],
+    "question": [
+      { "text": "根據孟子的說法，為甚麼有些人會「失其本心」？(2分)\n\nA 因為他們天生缺乏道德感。\nB 因為社會環境過於惡劣。\nC 因為他們未曾接受過教育。\nD 因為他們受到物欲和虛榮的誘惑。", "score-reference": [0] }
+    ],
+    "score": 2,
+    "type": "analysis",
+    "answer": [
+      { "text": "D", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-魚我所欲也-008",
+    "requires": [{ "type": "knowledge", "topic": "魚我所欲也" }],
+    "question": [
+      { "text": "完成以下關於論證手法的分析：\n" },
+      { "text": "\n(1) 作者以「一簞食、一豆羹」說明甚麼道理？(2分)", "score-reference": [0] },
+      { "text": "\n(2) 文中提到「萬鍾」之祿，與「一簞食」形成甚麼對比？(2分)", "score-reference": [1] },
+      { "text": "\n(3) 這對比說明了甚麼問題？(2分)", "score-reference": [2] }
+    ],
+    "score": 6,
+    "type": "analysis",
+    "answer": [
+      { "text": "說明人人都有捨生取義的羞惡之心，即使是普通人也能做到。", "label": "point", "score": 2 },
+      { "text": "以生存必需的「一簞食」與奢華物欲的「萬鍾」作對比。", "label": "point", "score": 2 },
+      { "text": "說明人往往能守住生存底線，卻在巨大的利益誘惑前失去本心，見利忘義。", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-魚我所欲也-009",
+    "requires": [{ "type": "knowledge", "topic": "魚我所欲也" }],
+    "question": [
+      { "text": "「鄉為身死而不受，今為宮室之美為之；鄉為身死而不受，今為妻妾之奉為之……」\n" },
+      { "text": "\n(1) 引文運用了哪種修辭手法？\nA 誇飾\nB 借代\nC 排比\nD 擬人", "score-reference": [0] },
+      { "text": "\n(2) 這種手法在論證上有甚麼效果？(3分)", "score-reference": [1, 2, 3] }
+    ],
+    "score": 5,
+    "type": "analysis",
+    "answer": [
+      { "text": "C", "label": "point", "score": 2 },
+      { "text": "強化了對見利忘義行為的批判力度。", "label": "point", "score": 1 },
+      { "text": "增強文章的氣勢與感染力。", "label": "point", "score": 1 },
+      { "text": "使論點闡述層層遞進，理直氣壯。", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-魚我所欲也-010",
+    "requires": [{ "type": "knowledge", "topic": "魚我所欲也" }],
+    "question": [
+      { "text": "下列哪一項最能準確概括本文的主旨？(2分)\n\nA 說明生命可貴，應當珍惜。\nB 說明捨生取義是人人具備的本心，應當堅守。\nC 指出社會風氣敗壞，士大夫不再追求道義。\nD 勸誡統治者應施行仁政，不應誘之以利。", "score-reference": [0] }
+    ],
+    "score": 2,
+    "type": "analysis",
+    "answer": [
+      { "text": "B", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-魚我所欲也-011",
+    "requires": [{ "type": "knowledge", "topic": "魚我所欲也" }],
+    "question": [
+      { "text": "孟子以「鄉」（從前）和「今」（現在）作對比，旨在說明甚麼？(3分)", "score-reference": [0, 1, 2] }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      { "text": "從前寧可死也不接受不合禮義的東西，現在卻為了享樂而接受。", "label": "point", "score": 1 },
+      { "text": "這種對比突顯了心態的轉變。", "label": "point", "score": 1 },
+      { "text": "藉此論述「見利忘義」就是喪失了天賦的「本心」。", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-魚我所欲也-012",
+    "requires": [{ "type": "knowledge", "topic": "魚我所欲也" }, { "type": "knowledge", "topic": "論語" }],
+    "question": [
+      { "text": "綜合《魚我所欲也》與《論語》，孔子與孟子對「義」與「生命」的看法有何共通之處？(6分)", "score-reference": [0, 1, 2, 3] }
+    ],
+    "score": 6,
+    "type": "analysis",
+    "answer": [
+      { "text": "孟子提出捨生取義，認為義的價值高於生命。", "label": "point", "score": 2 },
+      { "text": "孔子提出君子堅守仁德，不因貧賤富貴違仁，亦有「殺身成仁」之說。", "label": "point", "score": 2 },
+      { "text": "共通處在於兩者都認為人應追求更高的道德人格。", "label": "point", "score": 1 },
+      { "text": "在面臨生死抉擇時，應堅守道德原則而非苟且偷生。", "label": "point", "score": 1 }
+    ]
+  }
+]

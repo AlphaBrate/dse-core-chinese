@@ -1,0 +1,327 @@
+
+[
+  {
+    "QID": "CHI-聲聲慢-010",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "聲聲慢・秋情"
+      }
+    ],
+    "question": [
+      {
+        "text": "解釋以下文句中的粗體字：\n"
+      },
+      {
+        "text": "怎「**敵**」他晚來風急！",
+        "score-reference": [
+          0
+        ]
+      },
+      {
+        "text": "如今有誰「**堪**」摘？",
+        "score-reference": [
+          1
+        ]
+      }
+    ],
+    "score": 4,
+    "type": "vocabulary",
+    "answer": [
+      {
+        "text": "敵：抵擋",
+        "label": "point",
+        "score": 2
+      },
+      {
+        "text": "堪：能夠",
+        "label": "point",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "QID": "CHI-聲聲慢-011",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "聲聲慢・秋情"
+      }
+    ],
+    "question": [
+      {
+        "text": "語譯：\n這次第，怎一箇愁字了得！",
+        "score-reference": [
+          0,
+          1,
+          2
+        ]
+      }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      {
+        "text": "這光景",
+        "label": "point",
+        "score": 1
+      },
+      {
+        "text": "豈是一個",
+        "label": "point",
+        "score": 1
+      },
+      {
+        "text": "「愁」字能說得清楚",
+        "label": "point",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "QID": "CHI-聲聲慢-012",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "聲聲慢・秋情"
+      }
+    ],
+    "question": [
+      {
+        "text": "「尋尋覓覓...」\n引文在抒情方面：",
+        "score-reference": [
+          0
+        ]
+      },
+      {
+        "text": "\n說明其中包含的情感層次。",
+        "score-reference": [
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    "score": 5,
+    "type": "analysis",
+    "answer": [
+      {
+        "text": "由外而內，逐層深化的抒情",
+        "label": "point",
+        "score": 2
+      },
+      {
+        "text": "「尋尋覓覓」寫若有所失的空虛",
+        "label": "point",
+        "score": 1
+      },
+      {
+        "text": "「冷冷清清」寫尋覓無着的孤冷",
+        "label": "point",
+        "score": 1
+      },
+      {
+        "text": "「悽悽慘慘戚戚」直接抒發無法排解的愁緒",
+        "label": "point",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "QID": "CHI-聲聲慢-013",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "聲聲慢・秋情"
+      }
+    ],
+    "question": [
+      {
+        "text": "分析「雁過也」、「滿地黃花」、「這次第」的抒情手法與感情。",
+        "score-reference": [
+          0,
+          1,
+          2
+        ]
+      }
+    ],
+    "score": 9,
+    "type": "analysis",
+    "answer": [
+      {
+        "text": "雁過也：觸景生情，看見大雁南飛勾起思鄉之情",
+        "label": "point",
+        "score": 3
+      },
+      {
+        "text": "滿地黃花：緣情寫景，以花凋感傷年華老去、飄零異鄉",
+        "label": "point",
+        "score": 3
+      },
+      {
+        "text": "這次第：直接抒發，表達愁緒之深非筆墨能形容",
+        "label": "point",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "QID": "CHI-聲聲慢-014",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "聲聲慢・秋情"
+      }
+    ],
+    "question": [
+      {
+        "text": "分析「乍暖還寒」與「梧桐細雨」的感官描寫及反映感情。",
+        "score-reference": [
+          0,
+          1
+        ]
+      }
+    ],
+    "score": 8,
+    "type": "analysis",
+    "answer": [
+      {
+        "text": "乍暖還寒（觸覺）：天氣起伏如心情不定，煩悶不已",
+        "label": "point",
+        "score": 4
+      },
+      {
+        "text": "梧桐細雨（視覺、聽覺）：雨打梧桐聲聲入耳，突顯孤寂愁苦",
+        "label": "point",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "QID": "CHI-聲聲慢-015",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "聲聲慢・秋情"
+      }
+    ],
+    "question": [
+      {
+        "text": "判斷：\n(1) 表達對故鄉思念；\n(2) 抒發自甘淡泊情懷。",
+        "score-reference": [
+          0,
+          1
+        ]
+      }
+    ],
+    "score": 4,
+    "type": "analysis",
+    "answer": [
+      {
+        "text": "正確。藉大雁南飛景象表達思鄉",
+        "label": "point",
+        "score": 2
+      },
+      {
+        "text": "錯誤。旨在抒發難以排遣的孤苦愁緒",
+        "label": "point",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "QID": "CHI-聲聲慢-016",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "聲聲慢・秋情"
+      }
+    ],
+    "question": [
+      {
+        "text": "有指「黃花」是盛開而非凋謝，此解釋合理嗎？\n與感情有矛盾嗎？",
+        "score-reference": [
+          0,
+          1,
+          2
+        ]
+      }
+    ],
+    "score": 5,
+    "type": "analysis",
+    "answer": [
+      {
+        "text": "合理。某些菊花盛開時繁密如堆在地上",
+        "label": "point",
+        "score": 2
+      },
+      {
+        "text": "「憔悴損」可指人因孤苦而憔悴",
+        "label": "point",
+        "score": 1
+      },
+      {
+        "text": "不矛盾。以黃花盛開反襯無人共摘，更顯孤獨",
+        "label": "point",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "QID": "CHI-聲聲慢-017",
+    "requires": [
+      {
+        "type": "knowledge",
+        "topic": "聲聲慢・秋情"
+      }
+    ],
+    "question": [
+      {
+        "text": "李清照與李白《月下獨酌》抒情有何相通？",
+        "score-reference": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "text": "\n兩人在處境應對上有何分別？",
+        "score-reference": [
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    ],
+    "score": 8,
+    "type": "analysis",
+    "answer": [
+      {
+        "text": "相通：均抒發孤單寂寞之情",
+        "label": "point",
+        "score": 1
+      },
+      {
+        "text": "李清照遍尋不獲、呆坐窗旁感到淒冷",
+        "label": "point",
+        "score": 1
+      },
+      {
+        "text": "李白獨酌無伴，與月影共歡",
+        "label": "point",
+        "score": 1
+      },
+      {
+        "text": "分別：李白較樂觀，想像與月影結伴自娛以自我開解",
+        "label": "point",
+        "score": 3
+      },
+      {
+        "text": "李清照較消極，全詞哀歎孤獨處境，心情沉痛",
+        "label": "point",
+        "score": 2
+      }
+    ]
+  }
+]

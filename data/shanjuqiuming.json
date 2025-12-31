@@ -1,0 +1,180 @@
+
+[
+  {
+    "QID": "CHI-山居秋暝-001",
+    "requires": [{ "type": "knowledge", "topic": "山居秋暝" }],
+    "question": [
+      { "text": "在《山居秋暝》一詩中，作者對於在山中居住有甚麼想法？" },
+      { "text": "試摘錄有關詩句作答。", "score-reference": [0] }
+    ],
+    "score": 1,
+    "type": "copy",
+    "answer": [
+      {
+        "text": "隨意春芳歇，王孫自可留。",
+        "label": "exact",
+        "remark": "少引或多引不給分，標點符號不限。",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "QID": "CHI-山居秋暝-002",
+    "requires": [
+      { "type": "knowledge", "topic": "山居秋暝" },
+      { "type": "question-completion", "QID": "CHI-山居秋暝-001" }
+    ],
+    "question": [
+      { "text": "在《山居秋暝》一詩中，作者抒述了甚麼情懷？ 他又怎樣抒述這種情懷？ 試綜合全詩分析說明。", "score-reference": [0, 1, 2, 3, 4, 5, 6] }
+    ],
+    "score": 7,
+    "type": "analysis",
+    "answer": [
+      { "text": "作者抒述了他對山居生活的喜愛", "label": "point", "score": 1 },
+      { "text": "抒發自己厭倦官場", "label": "point", "score": 1 },
+      { "text": "樂意歸隱的高潔情懷", "label": "point", "score": 1 },
+      { "text": "詩中描寫山間秋夜雨後的景色", "label": "point", "score": 1 },
+      { "text": "描寫了洗衣女回來發出喧鬧聲", "label": "point", "score": 1 },
+      { "text": "漁舟駛過使蓮葉擺動", "label": "point", "score": 1 },
+      { "text": "作者描繪了山中寧靜的景色和純樸的鄉間生活", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-山居秋暝-003",
+    "requires": [{ "type": "knowledge", "topic": "山居秋暝" }],
+    "question": [
+      { "text": "《山居秋暝》運用了反襯手法，試舉一例加以說明。", "score-reference": [0, 1] }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      {
+        "text": "王維運用以動襯靜的手法，描寫流動的清泉，以及因漁舟而搖動的蓮葉。",
+        "label": "point",
+        "remark": "舉例",
+        "score": 2
+      },
+      {
+        "text": "正是環境如此安寧，才令細微的動態清晰可察，反襯出山居的幽靜。",
+        "label": "point",
+        "remark": "說明",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "QID": "CHI-山居秋暝-004",
+    "requires": [{ "type": "knowledge", "topic": "山居秋暝" }],
+    "question": [
+      { "text": "試解釋以下文句中的粗體字，並把答案寫在橫線上。" },
+      { "text": "「**竹喧**歸浣女」", "score-reference": [0] },
+      { "text": "「蓮動**下**漁舟」", "score-reference": [1] }
+    ],
+    "score": 4,
+    "type": "vocabulary",
+    "answer": [
+      { "text": "竹喧：竹林裏傳來的浣衣女談笑聲", "label": "point", "score": 2 },
+      { "text": "下：順流而下", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-山居秋暝-005",
+    "requires": [{ "type": "knowledge", "topic": "山居秋暝" }],
+    "question": [
+      { "text": "解釋以下文句中粗體字的含義：" },
+      { "text": "「**空**山新雨後」", "score-reference": [0] },
+      { "text": "「隨意春芳**歇**」", "score-reference": [1] }
+    ],
+    "score": 4,
+    "type": "vocabulary",
+    "answer": [
+      { "text": "空：廣闊 / 空曠", "label": "point", "score": 2 },
+      { "text": "歇：凋謝 / 枯萎", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-山居秋暝-006",
+    "requires": [{ "type": "knowledge", "topic": "山居秋暝" }],
+    "question": [
+      { "text": "翻譯以下句子：「空山新雨後，天氣晚來秋。」", "score-reference": [0, 1, 2] }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      { "text": "空寂的山谷中剛下過雨", "label": "point", "score": 1 },
+      { "text": "晚上的天氣", "label": "point", "score": 1 },
+      { "text": "已有秋天的涼意", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-山居秋暝-007",
+    "requires": [{ "type": "knowledge", "topic": "山居秋暝" }],
+    "question": [
+      { "text": "在《山居秋暝》中，王維所描寫的山居四週景色如何？" },
+      { "text": "1、水月澄明 \n 2、山勢奇險 \n 3、花木茂盛 \n 4、山林寂寥", "score-reference": [0] }
+    ],
+    "score": 2,
+    "type": "mc",
+    "answer": [
+      { "text": "1、3", "label": "point", "remark": "多選題", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-山居秋暝-008",
+    "requires": [{ "type": "knowledge", "topic": "山居秋暝" }],
+    "question": [
+      { "text": "王維描寫了哪個時分的景色？試摘錄有關詩句作答，並綜合全詩，說明哪些景象體現了這個時分的特點。", "score-reference": [0, 1, 2, 3] }
+    ],
+    "score": 4,
+    "type": "analysis",
+    "answer": [
+      { "text": "天氣晚來秋。", "label": "exact", "score": 1 },
+      { "text": "「明月」、「歸浣女」及「下漁舟」的景象均體現了傍晚/入夜時分的特點", "label": "point", "score": 1 },
+      { "text": "當時已入夜，皓月當空", "label": "point", "score": 1 },
+      { "text": "婦女洗衣歸來及漁舟順流而下，均屬山村傍晚的人事活動", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-山居秋暝-009",
+    "requires": [{ "type": "knowledge", "topic": "山居秋暝" }],
+    "question": [
+      { "text": "假如把《山居秋暝》頸聯兩句改為「竹喧浣女歸，蓮動漁舟下。」你認為表達效果會否更佳？試略加說明。", "score-reference": [0, 1, 2] }
+    ],
+    "score": 4,
+    "type": "analysis",
+    "answer": [
+      { "text": "不會。原句「竹喧歸浣女，蓮動下漁舟」為倒裝句，能突顯「歸」和「下」的動作，也令詩中的句式靈活多變。", "label": "point", "score": 1 },
+      { "text": "改句後句式與日常語言接近，平平無奇；且頷、頸二聯全用二二一節奏的句式，流於呆板。", "label": "point", "score": 1 },
+      { "text": "第六句末字若改為「下」，便會與其他雙數句末字的韻母不同，失去押韻效果，不合格律。", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-山居秋暝-010",
+    "requires": [{ "type": "knowledge", "topic": "山居秋暝" }],
+    "question": [
+      { "text": "王維在詩中反用了《招隱士》的典故，試摘錄有關詩句並略加說明。", "score-reference": [0, 1, 2, 3] }
+    ],
+    "score": 5,
+    "type": "analysis",
+    "answer": [
+      { "text": "隨意春芳歇，王孫自可留。", "label": "exact", "score": 2 },
+      { "text": "《招隱士》原意是希望王孫歸來，不要在山中久留。", "label": "point", "score": 1 },
+      { "text": "王維反用其意，表示任憑春芳凋謝，秋色仍美，王孫自會留在山中生活。", "label": "point", "score": 1 },
+      { "text": "藉此表現他對山中美景和退隱生活的喜愛及留戀。", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-山居秋暝-011",
+    "requires": [{ "type": "knowledge", "topic": "山居秋暝" }],
+    "question": [
+      { "text": "《山居秋暝》一詩，王維如何運用借景抒情的手法，表達自己的情懷？試加以說明。", "score-reference": [0, 1, 2] }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      { "text": "王維先描寫山間秋夜雨後的美景，帶出山中美景令人留戀，不願歸去。", "label": "point", "score": 1 },
+      { "text": "從而表達他嚮往安寧清靜的山居生活，抒發樂於歸隱山中的情懷。", "label": "point", "score": 1 },
+      { "text": "同時暗示了他對官場生活的厭倦。", "label": "point", "score": 1 }
+    ]
+  }
+]

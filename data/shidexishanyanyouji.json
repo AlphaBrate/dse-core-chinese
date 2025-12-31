@@ -1,0 +1,189 @@
+
+[
+  {
+    "QID": "CHI-始得西山宴遊記-001",
+    "requires": [
+      { "type": "knowledge", "topic": "始得西山宴遊記" }
+    ],
+    "question": [
+      { "text": "試解釋以下文句中的粗體字，並把答案寫在橫線上。" },
+      { "text": "(1) 日與其**徒**上高山。", "score-reference": [0] },
+      { "text": "(2) 入深林，**窮**迴谿。", "score-reference": [1] },
+      { "text": "(3) 外與天際，四望**如一**。", "score-reference": [2] },
+      { "text": "(4) 心凝形釋，與萬化**冥**合。", "score-reference": [3] },
+      { "text": "(5) 然後知吾**嚮**之未始遊。", "score-reference": [4] }
+    ],
+    "score": 10,
+    "type": "vocabulary",
+    "answer": [
+      { "text": "徒：同伴", "label": "point", "score": 2 },
+      { "text": "窮：走到盡頭", "label": "point", "score": 2 },
+      { "text": "一：同樣 / 一樣", "label": "point", "score": 2 },
+      { "text": "冥：暗中 / 默契地", "label": "point", "score": 2 },
+      { "text": "嚮：以前 / 以往", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-始得西山宴遊記-002",
+    "requires": [
+      { "type": "knowledge", "topic": "始得西山宴遊記" }
+    ],
+    "question": [
+      { "text": "試根據文意把以下文句譯為語體文。\n" },
+      { "text": "(1) 自余為僇人，居是州，恆惴慄。", "score-reference": [0, 1, 2] },
+      { "text": "\n(2) 意有所極，夢亦同趣。", "score-reference": [3, 4, 5] }
+    ],
+    "score": 6,
+    "type": "analysis",
+    "answer": [
+      { "text": "自從我成為有罪的人", "label": "point", "score": 1 },
+      { "text": "居住在這個州（永州）", "label": "point", "score": 1 },
+      { "text": "就常常恐懼不安", "label": "point", "score": 1 },
+      { "text": "心中想到那個地方", "label": "point", "score": 1 },
+      { "text": "做夢時也到了那個地方", "label": "point", "score": 1 },
+      { "text": "（語譯準確）", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-始得西山宴遊記-003",
+    "requires": [
+      { "type": "knowledge", "topic": "始得西山宴遊記" }
+    ],
+    "question": [
+      { "text": "以下哪一句是文言倒裝句？\n\nA 到則披草而坐。\nB 以為凡是州之山水有異態者。\nC 因坐法華西亭。\nD 蒼然暮色，自遠而至。", "score-reference": [0] }
+    ],
+    "score": 2,
+    "type": "analysis",
+    "answer": [
+      { "text": "B", "label": "point", "remark": "定語後置，實為「有異態之山水」", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-始得西山宴遊記-004",
+    "requires": [
+      { "type": "knowledge", "topic": "始得西山宴遊記" }
+    ],
+    "question": [
+      { "text": "本文題為「始得西山宴遊記」，但作者在首段卻集中寫自己在永州其他地方的遊玩經歷，這是否偏離主題？試說明你的看法。", "score-reference": [0, 1, 2, 3] }
+    ],
+    "score": 4,
+    "type": "analysis",
+    "answer": [
+      { "text": "沒有偏離主題。作者在首段描寫自己在永州的遊歷經驗，旨在襯托西山的怪特，並突顯西山之遊的可貴。", "label": "point", "score": 1 },
+      { "text": "作者先交代自己已遊覽過永州各處的「幽泉怪石」，後來才知道這些奇山異水都比不上西山，從而襯托出西山的怪特。", "label": "point", "score": 1 },
+      { "text": "另外，作者在首段寫自己遊覽其他山水時，往往興盡而歸，沒有留戀，但遊西山時，即使天色已黑亦不想離開。", "label": "point", "score": 1 },
+      { "text": "作者藉此襯托出西山之遊與別不同，並帶出下文「心凝形釋，與萬化冥合」的感悟。", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-始得西山宴遊記-005",
+    "requires": [
+      { "type": "knowledge", "topic": "始得西山宴遊記" }
+    ],
+    "question": [
+      { "text": "以下引文在文章結構上有甚麼作用？試略加說明。\n「以為凡是州之山水有異態者，皆我有也，而未始知西山之怪特。」", "score-reference": [0, 1, 2] }
+    ],
+    "score": 6,
+    "type": "analysis",
+    "answer": [
+      { "text": "作用：承上啟下。", "label": "point", "score": 2 },
+      { "text": "說明：「以為凡是州之山水有異態者，皆我有也」兩句，承接上文，總結了作者發現西山前遊覽山水的經驗。", "label": "point", "score": 2 },
+      { "text": "「而未始知西山之怪特」一句，指出作者當時還未發現奇異獨特的西山，就引出下文作者發現西山的經過，以及西山的「怪特」之處。", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-始得西山宴遊記-006",
+    "requires": [
+      { "type": "knowledge", "topic": "始得西山宴遊記" }
+    ],
+    "question": [
+      { "text": "在《始得西山宴遊記》中，作者怎樣通過登山後所見的景象，突顯西山的「特立」？", "score-reference": [0, 1, 2] }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      { "text": "作者從三方面突顯西山的「特立」：他先寫自己登上山頂後，發現附近幾個州的土地都在自己的坐席之下，藉此突出西山是永州一帶最高的山。", "label": "point", "score": 1 },
+      { "text": "接著作者描寫周圍的山丘和溪谷像小土堆和蟻穴，以襯托西山的高峻。", "label": "point", "score": 1 },
+      { "text": "然後又寫周遭的青山白水與天相接，四望如一，再進一步突顯西山高聳的形象。", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-始得西山宴遊記-007",
+    "requires": [
+      { "type": "knowledge", "topic": "始得西山宴遊記" }
+    ],
+    "question": [
+      { "text": "試根據以下《始得西山宴遊記》引文，回答所附問題。\n「然後知是山之特立，不與培塿為類。」\n\n引文運用了哪種寫作手法？\n\nA 象徵\nB 對比\nC 反襯\nD 誇飾", "score-reference": [0, 1, 2] }
+    ],
+    "score": 5,
+    "type": "analysis",
+    "answer": [
+      { "text": "A", "label": "point", "score": 2 },
+      { "text": "作者以西山象徵自己的高尚人格。", "label": "point", "score": 1 },
+      { "text": "西山山勢高聳奇特，不與小土丘相類，作者藉此寄寓自己孤高不群、不與世俗同流合污的高尚品格。", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-始得西山宴遊記-008",
+    "requires": [
+      { "type": "knowledge", "topic": "始得西山宴遊記" }
+    ],
+    "question": [
+      { "text": "以下引文摘錄自《始得西山宴遊記》，有關文句分別運用了哪種修辭手法（如頂真、比喻、借代）？", "score-reference": [0, 1, 2] }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      { "text": "「……傾壺而醉。醉則更相枕而臥……」：頂真", "label": "point", "score": 1 },
+      { "text": "「若垤若穴」：比喻", "label": "point", "score": 1 },
+      { "text": "「縈青繚白」：借代", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-始得西山宴遊記-009",
+    "requires": [
+      { "type": "knowledge", "topic": "始得西山宴遊記" }
+    ],
+    "question": [
+      { "text": "作者在遊覽西山前，已曾遊覽永州其他山水，為甚麼他在文末說「然後知吾嚮之未始遊，遊於是乎始」？試分析說明。", "score-reference": [0, 1] }
+    ],
+    "score": 4,
+    "type": "analysis",
+    "answer": [
+      { "text": "作者獲罪遭貶永州，藉遊山玩水來排遣心中的憂懼不安。遊覽其他山水期間，他往往喝醉即臥，睡醒即走，對景致並無留戀，並非真正欣賞山水。", "label": "point", "score": 2 },
+      { "text": "直至他遊覽西山後，壯闊無比的景致令他與大地合而為一，僇人的憂懼不安一掃而空。這種精神上的昇華令他領略到遊山玩水的真義，故以此為遊歷的真正開始。", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-始得西山宴遊記-010",
+    "requires": [
+      { "type": "knowledge", "topic": "始得西山宴遊記" }
+    ],
+    "question": [
+      { "text": "本文題為《始得西山宴遊記》，綜合全文內容，以下哪些是作者的所「得」？\n\n① 盡得宴遊西山之樂。\n② 豁然開朗，被貶後的不安一掃而空。\n③ 發現西山，得以欣賞西山怪特壯麗的景色。\n④ 從西山之遊中有所感悟，領略及時行樂的重要。", "score-reference": [0] },
+      { "text": "\nA ①、④\nB ①、②、③\nC ②、③、④\nD ①、②、③、④" }
+    ],
+    "score": 2,
+    "type": "analysis",
+    "answer": [
+      { "text": "B", "label": "point", "remark": "不包含 ④（並非領略及時行樂）", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-始得西山宴遊記-011",
+    "requires": [
+      { "type": "knowledge", "topic": "始得西山宴遊記" },
+      { "type": "knowledge", "topic": "青玉案·元夕" }
+    ],
+    "question": [
+      { "text": "柳宗元在《始得西山宴遊記》以西山自比，辛棄疾在《青玉案·元夕》則以「那人」自喻，他們所寄寓的感情有何共通之處？", "score-reference": [0, 1, 2] }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      { "text": "柳宗元以西山自比，寄寓自己孤高傲世、不與世俗同流合污的高尚品格。", "label": "point", "score": 1 },
+      { "text": "而辛棄疾則以「那人」自喻，表達自己不慕繁華、淡泊孤高的情懷。", "label": "point", "score": 1 },
+      { "text": "由此可見，柳宗元和辛棄疾分別借「西山」和「那人」，寄寓了自己孤高脫俗的高尚情操。", "label": "point", "score": 1 }
+    ]
+  }
+]

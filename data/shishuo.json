@@ -1,0 +1,224 @@
+
+[
+  {
+    "QID": "CHI-師說-001",
+    "requires": [
+      { "type": "knowledge", "topic": "文言字詞解釋" }
+    ],
+    "question": [
+      { "text": "試解釋以下文句中的粗體字，並把答案寫在橫線上：" },
+      { "text": "(1) 是故聖**益**聖，愚益愚。", "score-reference": [0] },
+      { "text": "(2) 其**皆**出於此乎！", "score-reference": [1] },
+      { "text": "(3) 聖人無**常**師。", "score-reference": [2] },
+      { "text": "(4) 聞道有先後，術業有專**攻**，如是而已。", "score-reference": [3] },
+      { "text": "(5) 余**嘉**其能行古道。", "score-reference": [4] }
+    ],
+    "score": 10,
+    "type": "vocabulary",
+    "answer": [
+      { "text": "益：更加", "label": "point", "score": 2 },
+      { "text": "其：大概", "label": "point", "score": 2 },
+      { "text": "常：固定的 / 恆常的", "label": "point", "score": 2 },
+      { "text": "攻：鑽研 / 從事", "label": "point", "score": 2 },
+      { "text": "嘉：讚許", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-師說-002",
+    "requires": [
+      { "type": "knowledge", "topic": "語譯" }
+    ],
+    "question": [
+      { "text": "試根據文意把以下文句譯為語體文：\n不拘於時，學於余。", "score-reference": [0, 1, 2] }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      { "text": "不受社會風氣", "label": "point", "score": 1 },
+      { "text": "的拘束", "label": "point", "score": 1 },
+      { "text": "向我學習", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-師說-003",
+    "requires": [
+      { "type": "knowledge", "topic": "內容整合" }
+    ],
+    "question": [
+      { "text": "根據《師說》一文，「古之聖人」和「今之眾人」的學習態度有甚麼不同？哪些人物符合他們的表現？試完成下表：\n古之聖人：(1) 學習態度", "score-reference": [0] },
+      { "text": "古之聖人：(2) 人物例子", "score-reference": [1] },
+      { "text": "今之眾人：(3) 學習態度", "score-reference": [2] },
+      { "text": "今之眾人：(4) 人物例子", "score-reference": [3] }
+    ],
+    "score": 6,
+    "type": "analysis",
+    "answer": [
+      { "text": "道德學問遠超一般人，但仍跟從老師學習。", "label": "point", "score": 1 },
+      { "text": "孔子是古代的聖人，道德學問高於郯子、萇弘、師襄和老聃，但孔子仍以他們為老師，向他們學習。", "label": "point", "score": 2 },
+      { "text": "道德學問跟聖人相距甚遠，但卻恥於向老師學習。", "label": "point", "score": 1 },
+      { "text": "士大夫不願意從師學習，才智連被他們看不起的巫醫、樂師、百工都比不上。", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-師說-004",
+    "requires": [{ "type": "knowledge", "topic": "內容理解" }],
+    "question": [
+      { "text": "「小學而大遺，吾未見其明也。」\n引文中的「小」和「大」分別指甚麼？\n" },
+      { "text": "A 「小」指年紀小，「大」指年紀大。\nB 「小」指恥於從師，「大」指從師學習。\nC 「小」指文章斷句，「大」指解惑明道。\nD 「小」指「今之眾人」，「大」指「古之聖人」。", "score-reference": [0] }
+    ],
+    "score": 2,
+    "type": "analysis",
+    "answer": [
+      { "text": "C", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-師說-005",
+    "requires": [
+      { "type": "question-completion", "target": "CHI-師說-004" }
+    ],
+    "question": [
+      { "text": "(2) 為什麼當時會出現「小學而大遺」的現象？試根據本文加以說明。", "score-reference": [0, 1, 2] }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      { "text": "當時不少人雖然會為兒子擇師，但自己卻恥於從師，自然也不會過問「童子之師」的教學內容。", "label": "point", "score": 1 },
+      { "text": "「童子之師」也只會教授句讀，不會向學生傳道解惑。", "label": "point", "score": 1 },
+      { "text": "當時的人只會向老師請教句讀，而不會向老師請教「道」。", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-師說-006",
+    "requires": [
+      { "type": "knowledge", "topic": "論證方法" }
+    ],
+    "question": [
+      { "text": "韓愈闡述了「巫醫、樂師、百工之人」和「士大夫之族」對於從師學習的態度。\n(1) 他在這裡運用了甚麼論證方法？", "score-reference": [0] },
+      { "text": "(2) 他又以此論證甚麼觀點？試加以說明。", "score-reference": [1, 2, 3] }
+    ],
+    "score": 4,
+    "type": "analysis",
+    "answer": [
+      { "text": "對比論證", "label": "point", "score": 1 },
+      { "text": "韓愈以「巫醫、樂師、百工之人」和「士大夫之族」作對比，指出巫醫、樂師等社會下層的人都能互相學習。", "label": "point", "score": 1 },
+      { "text": "士大夫卻因年紀、地位等問題而不願意從師學習，結果才智連被他們看不起的巫醫、樂師、百工都比不上。", "label": "point", "score": 1 },
+      { "text": "韓愈藉此論證從師學習的重要，以及不從師學習的愚昧。", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-師說-007",
+    "requires": [
+      { "type": "knowledge", "topic": "論證分析" }
+    ],
+    "question": [
+      { "text": "韓愈在文中曾列舉孔子的事例和引用孔子的言語，他借此論述了甚麼觀點？試略加說明。", "score-reference": [0, 1, 2] }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      { "text": "韓愈先列舉孔子向郯子、萇弘、師襄和老聃學習的事例，指出這些人的德行都比不上孔子。", "label": "point", "score": 1 },
+      { "text": "接著又引用孔子的話：「三人行，則必有我師。」", "label": "point", "score": 1 },
+      { "text": "說明老師不一定甚麼都比學生高明，先領會道理和有技藝專長的人便可為師。", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-師說-008",
+    "requires": [
+      { "type": "knowledge", "topic": "評價" }
+    ],
+    "question": [
+      { "text": "韓愈以孔子的言行為論據，你認為能加強他的說服力嗎？", "score-reference": [0, 1] }
+    ],
+    "score": 4,
+    "type": "analysis",
+    "answer": [
+      { "text": "能夠。因為孔子歷來都是聖人的典範，一般人都以為孔子不必從師學習，但韓愈指出孔子仍虛心地根據「道」來擇師而從。", "label": "point", "score": 2 },
+      { "text": "既然身為「萬世師表」、「至聖先師」的孔子也願意從師學習，那麼其他人就斷沒有不從師而學的道理了。", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-師說-009",
+    "requires": [
+      { "type": "knowledge", "topic": "內容整合" }
+    ],
+    "question": [
+      { "text": "韓愈曾提及他的學生李蟠。試根據有關內容判斷以下陳述：\n(1) 李蟠不是一個隨波逐流的人。", "score-reference": [0] },
+      { "text": "(2) 韓愈稱讚李蟠「能行古道」，是指他精通儒家的學問。", "score-reference": [1] }
+    ],
+    "score": 4,
+    "type": "analysis",
+    "answer": [
+      { "text": "正確（韓愈指李蟠「不拘於時」，可見其不隨波逐流）。", "label": "point", "score": 2 },
+      { "text": "錯誤（「古道」是指古人從師學習的風尚）。", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-師說-010",
+    "requires": [
+      { "type": "knowledge", "topic": "內容整合" }
+    ],
+    "question": [
+      { "text": "根據韓愈對當時學習風氣的批評，可見當時的人在學習上有何缺失？\n① 重視面子  ② 捨本逐末  ③ 態度傲慢  ④ 因循守舊\n" },
+      { "text": "A ①、②、③\nB ①、②、④\nC ①、③、④\nD ②、③、④", "score-reference": [0] }
+    ],
+    "score": 2,
+    "type": "analysis",
+    "answer": [
+      { "text": "A", "label": "exact", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-師說-011",
+    "requires": [
+      { "type": "knowledge", "topic": "情意分析" }
+    ],
+    "question": [
+      { "text": "「說」是用來闡發事理的文體，不過在《師說》中，韓愈除了闡述從師學習的道理外，還帶有明顯的個人感情。試舉例說明韓愈在文中流露了怎樣的感情。", "score-reference": [0, 1, 2] }
+    ],
+    "score": 3,
+    "type": "analysis",
+    "answer": [
+      { "text": "韓愈在文章中流露他對時人不願從師求學的憤慨和不滿。", "label": "point", "score": 1 },
+      { "text": "例如他慨歎師道之不傳已久，人的疑惑都得不到解答，是十分可悲的，從「嗟乎」一句可見他對師道失傳的感慨。", "label": "point", "score": 1 },
+      { "text": "最後更以「其可怪也歟」一句表達他對這種奇怪荒謬現象的憤慨和不滿。", "label": "point", "score": 1 }
+    ]
+  },
+  {
+    "QID": "CHI-師說-012",
+    "requires": [
+      { "type": "knowledge", "topic": "主旨與摘錄" }
+    ],
+    "question": [
+      { "text": "(1) 文中哪個句子概括了擇師的原則？試摘錄有關句子作答。", "score-reference": [0] },
+      { "text": "(2) 承上題，這個句子跟文章主旨有甚麼關係？試綜合全文分析說明。", "score-reference": [1, 2, 3] }
+    ],
+    "score": 6,
+    "type": "analysis",
+    "answer": [
+      { "text": "是故無貴無賤，無長無少，道之所存，師之所存也。", "label": "exact", "score": 1 },
+      { "text": "本文的主旨是批評當時士大夫恥於從師求學的歪風，並宣揚從師的必要。", "label": "point", "score": 1 },
+      { "text": "文中指出士大夫不願與年紀相近的人互相學習，又恥於以地位低的人為師；以官職高的人為師，又認為近於奉承，所以他們不願從師學習。", "label": "point", "score": 2 },
+      { "text": "韓愈這句話就明確指出擇師的原則只在於對方是否領會「道」，與年紀大小和地位貴賤無關，反駁了時人不從師的錯誤觀點，突出從師學習的重要。", "label": "point", "score": 2 }
+    ]
+  },
+  {
+    "QID": "CHI-師說-013",
+    "requires": [
+      { "type": "knowledge", "topic": "比較分析" },
+      { "type": "knowledge", "topic": "指定文言經典：論仁、論孝、論君子" }
+    ],
+    "question": [
+      { "text": "試根據以下《師說》及《論仁、論孝、論君子》的引文，回答問題。\n甲：巫醫、樂師、百工之人，君子不齒。（《師說》）\n乙：子曰：「君子病無能焉，不病人之不己知也。」（《論仁、論孝、論君子》）\n\n(1) 《師說》中的「君子」是指甚麼人？", "score-reference": [0] },
+      { "text": "(2) 《師說》中的「君子」，是否符合《論仁、論孝、論君子》中對君子的描述？試根據引文加以說明。", "score-reference": [1, 2, 3] }
+    ],
+    "score": 5,
+    "type": "analysis",
+    "answer": [
+      { "text": "當時讀書做官的人。", "label": "point", "score": 1 },
+      { "text": "不符合。", "label": "point", "score": 0 },
+      { "text": "《師說》中的「君子」重視面子，不肯虛心從師學習，才智連巫醫、樂師、百工也比不上，卻不會反省自己的缺失和加以改進。", "label": "point", "score": 2 },
+      { "text": "孔子口中的「君子」則會擔憂自己沒有才能，力求上進，所以《師說》中的「君子」並不符合《論仁、論孝、論君子》中對君子的描述。", "label": "point", "score": 2 }
+    ]
+  }
+]
