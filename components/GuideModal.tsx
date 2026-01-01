@@ -589,7 +589,7 @@ const GuideModal: React.FC<GuideModalProps> = ({
 								</p>
 								<p className="text-sm text-coreMuted leading-relaxed">
 									<a
-										href="/dse/ai"
+										href="https://aphbrt.web.app/dse/ai"
 										target="_blank"
 										className="text-brandBlue underline font-bold"
 									>
