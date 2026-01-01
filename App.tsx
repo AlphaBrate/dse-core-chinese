@@ -29,7 +29,7 @@ const App: React.FC = () => {
 	>({});
 
 	useEffect(() => {
-		// 僅檢測 localStorage 中的 user_api_key
+		// Detect user_api_key in localStorage
 		const userKey = localStorage.getItem("user_api_key");
 		const hintDismissed = sessionStorage.getItem("dse_key_hint_dismissed");
 
@@ -142,7 +142,7 @@ const App: React.FC = () => {
 	const handleConfigureNow = () => {
 		setShowKeyHint(false);
 		sessionStorage.setItem("dse_key_hint_dismissed", "true");
-		setIsGuideOpen(true); // 開啟設置頁面
+		setIsGuideOpen(true);
 	};
 
 	return (
@@ -165,10 +165,14 @@ const App: React.FC = () => {
 				isGuideOpen={isGuideOpen}
 				setIsGuideOpen={setIsGuideOpen}
 			>
-				<div className="max-w-4xl mx-auto py-8 px-4 min-h-[60vh]">
+				{/* Optimized responsive container */}
+				<div className="max-w-4xl mx-auto py-6 sm:py-8 px-4 min-h-[60vh]">
 					{isLoading ? (
 						<div className="flex flex-col items-center justify-center py-20 animate-pulse">
 							<div className="w-16 h-16 border-4 border-brandBlue/20 border-t-brandBlue rounded-full animate-spin mb-4"></div>
+							<p className="text-coreMuted text-sm font-medium">
+								加載中...
+							</p>
 						</div>
 					) : (
 						<>

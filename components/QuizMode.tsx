@@ -378,7 +378,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 										className={`w-full p-6 rounded-core border transition-all duration-500 ease-liquid group ${
 											currentIndex === idx
 												? "bg-brandBlue text-white border-brandBlue shadow-xl -translate-y-1"
-												: "bg-coreGray/30 dark:bg-white/5 text-coreText dark:text-white/80 border-transparent hover:border-coreMuted"
+												: "bg-coreGray/30 dark:bg-white/5 text-coreText dark:text-white/80 border-transparent hover:border-coreMuted/10"
 										}`}
 									>
 										<div className="flex justify-between items-center mb-2 text-[0.6rem] font-bold opacity-60 text-left">
@@ -395,6 +395,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 												text={q.question
 													.map((sq) => sq.text)
 													.join("")}
+												classList={currentIndex === idx ? { p: "!text-white" } : {}}
 											/>
 										</div>
 									</button>

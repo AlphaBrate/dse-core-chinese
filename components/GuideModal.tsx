@@ -166,13 +166,13 @@ const GuideModal: React.FC<GuideModalProps> = ({
 
 	return (
 		<div
-			className={`fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/60 backdrop-blur-[5px] ${
+			className={`fixed inset-0 z-[110] flex items-center justify-center p-0 lg:p-4 bg-black/60 backdrop-blur-[5px] ${
 				isExiting ? "animate-out fade-out" : "animate-in fade-in"
 			} duration-500`}
 			onClick={handleInternalClose}
 		>
 			<div
-				className={`bg-white dark:bg-darkCard w-full max-w-5xl h-[85vh] rounded-[48px] shadow-2xl border border-coreBorder dark:border-darkBorder flex flex-col overflow-hidden relative ${
+				className={`bg-white dark:bg-darkCard w-full max-w-5xl h-full lg:h-[85vh] lg:rounded-[48px] shadow-2xl lg:border lg:border-coreBorder dark:border-darkBorder flex flex-col overflow-hidden relative ${
 					isExiting ? "animate-out zoom-out" : "animate-in zoom-in"
 				} duration-500`}
 				onClick={(e) => e.stopPropagation()}
@@ -189,15 +189,13 @@ const GuideModal: React.FC<GuideModalProps> = ({
 					}}
 				></div>
 
-				<div className="absolute top-0 left-0 right-0 z-40 pt-10 pb-6 px-12 pointer-events-auto">
+				<div className="absolute top-0 left-0 right-0 z-40 pt-10 pb-6 px-4 pointer-events-auto lg:px-12">
 					<div className="flex justify-between items-center">
 						<div className="text-left animate-in blur-in">
-							<h2 className="text-2xl font-black tracking-tight dark:text-white">
-								AlphaBrate
+							<h2 className="text-2xl dark:text-white">
+								<span className="font-bold ">AlphaBrate</span>{" "}
+								for DSE
 							</h2>
-							<p className="text-[0.6rem] font-bold text-coreMuted mt-1 uppercase tracking-[0.3em]">
-								Intelligence Hub & Statistics
-							</p>
 						</div>
 						<button
 							onClick={handleInternalClose}
@@ -208,7 +206,7 @@ const GuideModal: React.FC<GuideModalProps> = ({
 					</div>
 				</div>
 
-				<div className="flex-grow overflow-y-auto px-12 pt-40 pb-40 custom-scrollbar text-left relative">
+				<div className="flex-grow overflow-y-auto px-4 lg:px-12 pt-40 pb-40 custom-scrollbar text-left relative">
 					{activeTab === "profile" && (
 						<div className="space-y-12 animate-in blur-in">
 							{isLoadingData && allQuestions.length === 0 ? (
@@ -508,7 +506,9 @@ const GuideModal: React.FC<GuideModalProps> = ({
 								</h3>
 								<p className="text-coreMuted mt-2">
 									請粘貼你的 <b>OpenRouter</b> API 密鑰以激活
-									AI 閱卷功能。
+									<span className="whitespace-nowrap">
+										AI 閱卷功能。
+									</span>
 								</p>
 							</div>
 
@@ -587,6 +587,15 @@ const GuideModal: React.FC<GuideModalProps> = ({
 									，註冊一個賬號，獲取免費的 OpenRouter API
 									密鑰，然後在此處粘貼即可。
 								</p>
+								<p className="text-sm text-coreMuted leading-relaxed">
+									<a
+										href="/dse/ai"
+										target="_blank"
+										className="text-brandBlue underline font-bold"
+									>
+										閱讀詳細使用教程
+									</a>
+								</p>
 							</div>
 							<p className="text-sm text-coreMuted leading-relaxed">
 								請不要提供任何已付款的 API
@@ -611,7 +620,8 @@ const GuideModal: React.FC<GuideModalProps> = ({
 								若瀏覽器遭受 XSS
 								攻擊或惡意擴充套件，密鑰可能被竊取（影響你的帳單與配額）。
 								建議定期輪換密鑰，並限制其權限（如設定支出上限）。
-								<br />詳見{" "}
+								<br />
+								詳見{" "}
 								<a
 									href="https://openrouter.ai/keys"
 									target="_blank"
@@ -625,49 +635,62 @@ const GuideModal: React.FC<GuideModalProps> = ({
 					)}
 				</div>
 
-				<div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-50">
-					<div className="bg-white/40 dark:bg-white/10 backdrop-blur-[5px] border border-black/5 dark:border-white/10 p-1.5 rounded-full shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] flex items-center w-[450px] relative">
+				<div className="absolute bottom-6 sm:bottom-12 left-1/2 -translate-x-1/2 z-50 w-full px-4 sm:w-auto">
+					<div className="bg-white/40 dark:bg-white/10 backdrop-blur-[15px] border border-black/5 dark:border-white/10 p-1 rounded-full shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] flex items-center w-full sm:w-[450px] mx-auto relative">
+						{/* Liquid Slider Background */}
 						<div
-							className="absolute top-1.5 bottom-1.5 rounded-full bg-white dark:bg-white/10 shadow-lg transition-all duration-700 ease-liquid"
+							className="absolute top-1 bottom-1 rounded-full bg-white dark:bg-white/10 shadow-lg transition-all duration-700 ease-liquid"
 							style={{
 								left:
 									activeTab === "profile"
-										? "6px"
+										? "4px"
 										: activeTab === "guide"
-										? "calc(33.33% + 4px)"
+										? "calc(33.33% + 2px)"
 										: "calc(66.66% + 2px)",
-								width: "calc(33.33% - 8px)",
+								width: "calc(33.33% - 6px)",
 							}}
 						/>
+
+						{/* Profile Tab */}
 						<button
 							onClick={() => setActiveTab("profile")}
-							className={`relative z-10 flex-1 py-3 text-[0.65rem] font-black uppercase tracking-widest transition-all duration-500 ${
+							className={`relative z-10 flex-1 py-2.5 sm:py-3 text-[0.6rem] sm:text-[0.65rem] font-black uppercase tracking-widest transition-all duration-500 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 ${
 								activeTab === "profile"
 									? "text-brandBlue dark:text-white"
 									: "text-coreMuted"
 							}`}
 						>
-							<i className="fas fa-chart-pie mr-2"></i> 學習診斷
+							<i className="fas fa-chart-pie"></i>
+							<span className="hidden sm:inline">學習診斷</span>
+							<span className="sm:hidden">診斷</span>
 						</button>
+
+						{/* Guide Tab */}
 						<button
 							onClick={() => setActiveTab("guide")}
-							className={`relative z-10 flex-1 py-3 text-[0.65rem] font-black uppercase tracking-widest transition-all duration-500 ${
+							className={`relative z-10 flex-1 py-2.5 sm:py-3 text-[0.6rem] sm:text-[0.65rem] font-black uppercase tracking-widest transition-all duration-500 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 ${
 								activeTab === "guide"
 									? "text-brandBlue dark:text-white"
 									: "text-coreMuted"
 							}`}
 						>
-							<i className="fas fa-code mr-2"></i> 技術指南
+							<i className="fas fa-code"></i>
+							<span className="hidden sm:inline">技術指南</span>
+							<span className="sm:hidden">指南</span>
 						</button>
+
+						{/* API Tab */}
 						<button
 							onClick={() => setActiveTab("api")}
-							className={`relative z-10 flex-1 py-3 text-[0.65rem] font-black uppercase tracking-widest transition-all duration-500 ${
+							className={`relative z-10 flex-1 py-2.5 sm:py-3 text-[0.6rem] sm:text-[0.65rem] font-black uppercase tracking-widest transition-all duration-500 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 ${
 								activeTab === "api"
 									? "text-brandBlue dark:text-white"
 									: "text-coreMuted"
 							}`}
 						>
-							<i className="fas fa-plug mr-2"></i> API 設置
+							<i className="fas fa-plug"></i>
+							<span className="hidden sm:inline">API 設置</span>
+							<span className="sm:hidden">API</span>
 						</button>
 					</div>
 				</div>
