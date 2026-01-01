@@ -458,7 +458,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 				</div>
 			)}
 
-			<div className="glass-card relative animate-in fade-in slide-in-up duration-700">
+			<div className="glass-card-mobile lg:glass-card relative animate-in fade-in slide-in-up duration-700">
 				<div className="flex justify-between items-start mb-10">
 					<div className="flex items-start gap-4">
 						<div className="flex flex-col gap-4">
@@ -506,7 +506,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 						<span className="block text-[0.6rem] font-bold text-coreMuted uppercase mb-1">
 							當前進度
 						</span>
-						<span className="text-2xl font-black dark:text-white tabular-nums tracking-tighter">
+						<span className="text-xl lg:text-2xl font-black dark:text-white tabular-nums tracking-tighter">
 							{currentIndex + 1}
 							<span className="text-coreMuted font-light mx-1">
 								/
@@ -517,14 +517,14 @@ const QuizMode: React.FC<QuizModeProps> = ({
 				</div>
 
 				<div className="mb-10 text-left">
-					<div className="text-2xl md:text-3xl font-bold leading-[1.6] dark:text-white tracking-tight">
+					<div className="text-xl md:text-3xl font-bold leading-[1.6] dark:text-white tracking-tight">
 						<MarkdownText
 							text={parsedContent.headerLines.join("\n").trim()}
 						/>
 					</div>
 
 					{hint && (
-						<div className="mt-8 p-6 rounded-3xl bg-amber-950/20 dark:bg-amber-900/10 border border-amber-500/30 animate-in slide-in-down duration-500 flex gap-4">
+						<div className="mt-8 p-6 rounded-3xl bg-amber-500/10 dark:bg-amber-900/10 border border-amber-500/30 animate-in slide-in-down duration-500 flex gap-4">
 							<div className="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center flex-shrink-0 text-white text-xs">
 								<i className="fas fa-info"></i>
 							</div>
@@ -673,7 +673,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 					</div>
 				) : (
 					<div className="space-y-12 animate-in fade-in slide-in-up duration-1000">
-						<div className="bg-coreGray/40 dark:bg-white/5 p-10 rounded-[48px] border border-coreBorder dark:border-white/10 text-left">
+						<div className="lg:bg-coreGray/40 lg:dark:bg-white/5 p-2 lg:p-10 lg:rounded-[48px] lg:border lg:border-coreBorder lg:dark:border-white/10 text-left">
 							<div className="flex items-end justify-between mb-12 pb-8 border-b border-coreBorder dark:border-white/10">
 								<div>
 									<h3 className="font-bold text-3xl dark:text-white tracking-tight">
@@ -722,7 +722,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 								<label className="block text-[0.6rem] font-bold text-coreMuted uppercase mb-4 opacity-60">
 									您的作答紀錄
 								</label>
-								<div className="bg-white dark:bg-darkBg p-8 rounded-[24px] border border-coreBorder dark:border-white/10 text-coreText dark:text-white/90 italic text-xl font-bold leading-relaxed shadow-sm whitespace-pre-line">
+								<div className="bg-white dark:bg-darkBg p-4 lg:p-8 rounded-[24px] border border-coreBorder dark:border-white/10 text-coreText dark:text-white/90 italic text-xl font-bold leading-relaxed shadow-sm whitespace-pre-line">
 									{submittedAnswer}
 								</div>
 							</div>
@@ -741,7 +741,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 										return (
 											<div
 												key={i}
-												className={`p-8 rounded-[32px] border transition-all duration-700 flex items-start gap-6 animate-in fade-in slide-in-up ${
+												className={`p-4 lg:p-8 rounded-[32px] border transition-all duration-700 flex items-start gap-4 lg:gap-6 animate-in fade-in slide-in-up ${
 													f.hit
 														? "bg-white dark:bg-darkCard border-brandBlue/30 shadow-xl scale-[1.01]"
 														: "bg-transparent border-transparent opacity-40"
@@ -753,7 +753,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 												}}
 											>
 												<div
-													className={`w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center text-lg font-bold ${
+													className={`w-6 h-6 lg:w-12 lg:h-12 rounded-full flex-shrink-0 flex items-center justify-center text-lg font-bold ${
 														f.hit
 															? "bg-brandBlue text-white shadow-lg"
 															: "bg-coreGray dark:bg-white/10 text-coreMuted"
@@ -809,11 +809,11 @@ const QuizMode: React.FC<QuizModeProps> = ({
 								)
 							)}
 
-							<div className="mt-12 p-10 bg-coreGray/50 dark:bg-white/10 rounded-[40px] border border-coreBorder dark:border-white/5 relative overflow-hidden transition-all duration-500">
-								<h4 className="text-[0.65rem] font-bold uppercase tracking-[0.2em] mb-4 text-brandBlue">
+							<div className="mt-12 p-4 pb-0 lg:p-10 bg-coreGray/50 dark:bg-white/10 rounded-[40px] border border-coreBorder dark:border-white/5 relative overflow-hidden transition-all duration-500">
+								<h4 className="text-[0.65rem] font-bold uppercase tracking-[0.2em] mb-0 lg:mb-4 text-brandBlue">
 									{framework ? "導師總評" : "閱卷總評"}
 								</h4>
-								<div className="font-bold text-2xl italic leading-relaxed tracking-tight text-coreText dark:text-white">
+								<div className="font-bold text-xl lg:text-2xl italic leading-relaxed tracking-tight text-coreText dark:text-white">
 									<MarkdownText
 										text={
 											result.overallComment.startsWith(

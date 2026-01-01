@@ -1,7 +1,7 @@
 import { Question, GradingResult, SavedResult } from "./types";
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
-const MODEL_NAME = "xiaomi/mimo-v2-flash:free";
+const MODEL_NAME = localStorage.modelID || "xiaomi/mimo-v2-flash:free";
 
 /**
  * Core Fetch Wrapper for OpenRouter

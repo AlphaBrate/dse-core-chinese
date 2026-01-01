@@ -166,13 +166,10 @@ const App: React.FC = () => {
 				setIsGuideOpen={setIsGuideOpen}
 			>
 				{/* Optimized responsive container */}
-				<div className="max-w-4xl mx-auto py-6 sm:py-8 px-4 min-h-[60vh]">
+				<div className="max-w-4xl mx-auto py-0 lg:py-6 sm:py-8 px-0 lg:px-4 min-h-[60vh]">
 					{isLoading ? (
 						<div className="flex flex-col items-center justify-center py-20 animate-pulse">
 							<div className="w-16 h-16 border-4 border-brandBlue/20 border-t-brandBlue rounded-full animate-spin mb-4"></div>
-							<p className="text-coreMuted text-sm font-medium">
-								加載中...
-							</p>
 						</div>
 					) : (
 						<>

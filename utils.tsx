@@ -78,7 +78,6 @@ export const MarkdownText: React.FC<MarkdownTextProps> = ({
 						6: `text-base ${classList.h6 || ""}`,
 					};
 
-					// Use React.createElement to fix "Tag does not have construct signatures" error
 					return React.createElement(
 						`h${level}`,
 						{
@@ -214,9 +213,10 @@ export const MarkdownText: React.FC<MarkdownTextProps> = ({
  * Handles Inline Styles (Bold, Links, Images)
  */
 function renderInline(text: string, classList: MarkdownClassList) {
-	// Regex captures Images, Links, and Bold text
+	// FIXED: Removed the extra capturing group around the bold regex (**.*?**)
+	// This prevents the string split from duplicating the bolded text in the array.
 	const parts = text.split(
-		/(!\[.*?\]\(.*?\)|\[.*?\]\(.*?\)\s?|(\*\*.*?\*\*))/g
+		/(!\[.*?\]\(.*?\)|\[.*?\]\(.*?\)\s?|\*\*.*?\*\*)/g
 	);
 
 	return parts.map((part, i) => {
