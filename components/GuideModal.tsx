@@ -523,7 +523,7 @@ const GuideModal: React.FC<GuideModalProps> = ({
 										onChange={(e) =>
 											setApiKey(e.target.value)
 										}
-										placeholder="AIzaSy..."
+										placeholder="sk-or-..."
 										className="w-full bg-white dark:bg-darkCard border-2 border-coreBorder dark:border-darkBorder rounded-2xl px-6 py-4 outline-none focus:border-brandBlue transition-all font-mono text-sm dark:text-white"
 									/>
 									<button
