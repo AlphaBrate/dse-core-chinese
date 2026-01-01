@@ -260,7 +260,9 @@ const QuizMode: React.FC<QuizModeProps> = ({
 			let message = "";
 
 			if (err.message.includes("is not a valid model ID")) {
-				message = `Error Model Name. If you are not confident in coding, please do not try to modify.\nType 'localStorage.modelID = "xiaomi/mimo-v2-flash:free"' in console and reload to resolve this.`
+				message = `Incorrect model name. Do not attempt to modify this if you are not familiar with web development.\nTo resolve this issue, enter "localStorage.modelID = "xiaomi/mimo-v2-flash:free"" in the console and reload.`
+			} else if (err.message.includes("SyntaxError: JSON Parse error: Unrecognized token")) {
+				message = `Please try again; AI output failed. If the problem persists, please seek support or submit a problem report.\nWe're sorry, this free model may have issues.`
 			}
 
 			alert(`${err.message}\n${message}`)
