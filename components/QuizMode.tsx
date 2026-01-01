@@ -257,6 +257,13 @@ const QuizMode: React.FC<QuizModeProps> = ({
 			)
 				onMistake(currentQuestion.QID, true);
 		} catch (err: any) {
+			let message = "";
+
+			if (err.message.includes("is not a valid model ID")) {
+				message = `Error Model Name. If you are not confident in coding, please do not try to modify.\nType 'localStorage.modelID = "xiaomi/mimo-v2-flash:free"' in console and reload to resolve this.`
+			}
+
+			alert(`${err.message}\n${message}`)
 			setError(err.message || "發生錯誤");
 		} finally {
 			setIsGrading(false);

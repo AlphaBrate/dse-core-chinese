@@ -3,6 +3,8 @@ import { Question, GradingResult, SavedResult } from "./types";
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 const MODEL_NAME = localStorage.modelID || "xiaomi/mimo-v2-flash:free";
 
+console.log("Using Model " + MODEL_NAME);
+
 /**
  * Core Fetch Wrapper for OpenRouter
  */
@@ -102,7 +104,8 @@ export const gradeAnswer = async (
 		return JSON.parse(content) as GradingResult;
 	} catch (error) {
 		console.error("Grading error:", error);
-		throw new Error("AI 閱卷系統暫時離線。請稍後再試。");
+
+		throw new Error(error);
 	}
 };
 
