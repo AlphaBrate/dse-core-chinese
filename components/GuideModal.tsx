@@ -603,6 +603,23 @@ const GuideModal: React.FC<GuideModalProps> = ({
 									隱私保護聲明
 								</a>
 								。
+								<br />
+								<strong className="text-amber-600">
+									安全警告：
+								</strong>
+								請勿在共用或不信任的裝置上保存密鑰。
+								若瀏覽器遭受 XSS
+								攻擊或惡意擴充套件，密鑰可能被竊取（影響你的帳單與配額）。
+								建議定期輪換密鑰，並限制其權限（如設定支出上限）。
+								<br />詳見{" "}
+								<a
+									href="https://openrouter.ai/keys"
+									target="_blank"
+									className="text-brandBlue underline font-bold"
+								>
+									OpenRouter 密鑰管理
+								</a>
+								。
 							</p>
 						</div>
 					)}

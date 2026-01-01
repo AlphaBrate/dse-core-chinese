@@ -6,11 +6,7 @@ import React, {
 	useRef,
 } from "react";
 import { Question, GradingResult, SavedResult } from "../types";
-import {
-	gradeAnswer,
-	getQuestionHint,
-	getAnswerFramework,
-} from "../AIService";
+import { gradeAnswer, getQuestionHint, getAnswerFramework } from "../AIService";
 import { MarkdownText } from "../utils";
 
 interface QuizModeProps {
