@@ -8,6 +8,7 @@ import MistakesMode from "./components/MistakesMode";
 import OriginalMode from "./components/OriginalMode";
 import Layout from "./components/Layout";
 import ActivationHintModal from "./components/ActivationHintModal";
+import AIServiceHint from "./components/AIServiceHint";
 
 const App: React.FC = () => {
 	const [mode, setMode] = useState<AppMode>(AppMode.Quiz);
@@ -141,12 +142,15 @@ const App: React.FC = () => {
 
 	return (
 		<>
+			<AIServiceHint />
+			
 			{showKeyHint && (
 				<ActivationHintModal
 					onClose={handleDismissHint}
 					onConfigure={handleConfigureNow}
 				/>
 			)}
+
 			<Layout
 				mode={mode}
 				setMode={setMode}
