@@ -202,6 +202,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 			const finalAnswer = selectedOptions.sort().join("、");
 			setSubmittedAnswer(finalAnswer);
 			const correctAnswer = currentQuestion.answer[0]?.text || "";
+			const answerDescription = currentQuestion.answer[1]?.text || null;
 			const isCorrect = finalAnswer === correctAnswer;
 			const localResult: GradingResult = {
 				totalScore: isCorrect ? currentQuestion.score : 0,
@@ -213,8 +214,8 @@ const QuizMode: React.FC<QuizModeProps> = ({
 						hit: isCorrect,
 						comment: isCorrect
 							? "答案正確。"
-							: `答案不正確。正確答案為「${correctAnswer}」。`,
-					},
+							: `答案不正確。正確答案為「${correctAnswer}」。\n${answerDescription}`,
+					}
 				],
 				overallComment: isCorrect
 					? "選擇正確，繼續保持！"
