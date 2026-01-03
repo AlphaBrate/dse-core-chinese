@@ -127,6 +127,27 @@ const QuizMode: React.FC<QuizModeProps> = ({
 		else setQuestions(initialQuestions);
 	}, [topic, initialQuestions, isRandom]);
 
+	// 1. Find the first unanswered question on mount/initialization
+	useEffect(() => {
+		// Check if questions are loaded and we haven't started interacting yet
+		if (questions.length > 0 && Object.keys(progress).length >= 0) {
+			// Find the index of the first question ID not present in progress
+			const firstUnansweredIndex = questions.findIndex(
+				(q) => !progress[q.QID] || progress[q.QID].length === 0
+			);
+
+			if (firstUnansweredIndex !== -1) {
+				// Navigate to the first missing one
+				setCurrentIndex(firstUnansweredIndex);
+			} else {
+				// If all are finished, navigate to the last question
+				setCurrentIndex(questions.length - 1);
+			}
+		}
+		// We only want to run this once when the quiz loads
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [questions.length]);
+
 	useEffect(() => {
 		const history = progress[currentQuestion?.QID];
 		const saved =
@@ -215,7 +236,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 						comment: isCorrect
 							? "答案正確。"
 							: `答案不正確。正確答案為「${correctAnswer}」。\n${answerDescription}`,
-					}
+					},
 				],
 				overallComment: isCorrect
 					? "選擇正確，繼續保持！"
@@ -261,12 +282,16 @@ const QuizMode: React.FC<QuizModeProps> = ({
 			let message = "";
 
 			if (err.message.includes("is not a valid model ID")) {
-				message = `Incorrect model name. Do not attempt to modify this if you are not familiar with web development.\nTo resolve this issue, enter "localStorage.modelID = "xiaomi/mimo-v2-flash:free"" in the console and reload.`
-			} else if (err.message.includes("SyntaxError: JSON Parse error: Unrecognized token")) {
-				message = `Please try again; AI output failed. If the problem persists, please seek support or submit a problem report.\nWe're sorry, this free model may have issues.`
+				message = `Incorrect model name. Do not attempt to modify this if you are not familiar with web development.\nTo resolve this issue, enter "localStorage.modelID = "xiaomi/mimo-v2-flash:free"" in the console and reload.`;
+			} else if (
+				err.message.includes(
+					"SyntaxError: JSON Parse error: Unrecognized token"
+				)
+			) {
+				message = `Please try again; AI output failed. If the problem persists, please seek support or submit a problem report.\nWe're sorry, this free model may have issues.`;
 			}
 
-			alert(`${err.message}\n${message}`)
+			alert(`${err.message}\n${message}`);
 			setError(err.message || "發生錯誤");
 		} finally {
 			setIsGrading(false);
@@ -405,7 +430,11 @@ const QuizMode: React.FC<QuizModeProps> = ({
 												text={q.question
 													.map((sq) => sq.text)
 													.join("")}
-												classList={currentIndex === idx ? { p: "!text-white" } : {}}
+												classList={
+													currentIndex === idx
+														? { p: "!text-white" }
+														: {}
+												}
 											/>
 										</div>
 									</button>
