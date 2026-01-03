@@ -6,11 +6,7 @@ import React, {
 	useRef,
 } from "react";
 import { Question, GradingResult, SavedResult } from "../types";
-import {
-	gradeAnswer,
-	getQuestionHint,
-	getAnswerFramework,
-} from "../AIService";
+import { gradeAnswer, getQuestionHint, getAnswerFramework } from "../AIService";
 import { MarkdownText } from "../utils";
 
 interface QuizModeProps {
@@ -25,6 +21,8 @@ interface QuizModeProps {
 		answer: string,
 		result: GradingResult
 	) => void;
+	sessionState?: { index: number; answer: string };
+	onUpdateSession?: (index: number, answer: string) => void;
 }
 
 const QuizMode: React.FC<QuizModeProps> = ({
@@ -35,10 +33,12 @@ const QuizMode: React.FC<QuizModeProps> = ({
 	isRandom = false,
 	progress = {},
 	onSaveProgress,
+	sessionState,
+	onUpdateSession,
 }) => {
 	const [questions, setQuestions] = useState<Question[]>(initialQuestions);
-	const [currentIndex, setCurrentIndex] = useState(0);
-	const [userAnswer, setUserAnswer] = useState("");
+	const [currentIndex, setCurrentIndex] = useState(sessionState?.index || 0);
+	const [userAnswer, setUserAnswer] = useState(sessionState?.answer || "");
 	const [submittedAnswer, setSubmittedAnswer] = useState("");
 	const [vocabularyAnswers, setVocabularyAnswers] = useState<
 		Record<number, string>
@@ -57,10 +57,6 @@ const QuizMode: React.FC<QuizModeProps> = ({
 	const [framework, setFramework] = useState<string | null>(null);
 
 	const jumpInputRef = useRef<HTMLInputElement>(null);
-
-	// 追蹤組件是否為「首次掛載」，用於區分 Reload 和 Topic Switch
-	const isInitialMount = useRef(true);
-
 	const currentQuestion = questions[currentIndex];
 
 	const isVocabularyTask = currentQuestion?.type === "vocabulary";
@@ -71,54 +67,6 @@ const QuizMode: React.FC<QuizModeProps> = ({
 	);
 
 	const attemptsCount = progress[currentQuestion?.QID]?.length || 0;
-
-	// --- 回復邏輯核心 ---
-	useEffect(() => {
-		if (isInitialMount.current) {
-			// 場景：頁面重載 (Reload)
-			// 從 localStorage 回復最後一次看到的題目索引和草稿
-			const savedIndex = parseInt(
-				localStorage.getItem("dse_last_index") || "0"
-			);
-			const savedDraft = localStorage.getItem("dse_last_draft") || "";
-
-			// 確保索引合法
-			const validIndex = Math.min(
-				savedIndex,
-				questions.length > 0 ? questions.length - 1 : 0
-			);
-			setCurrentIndex(validIndex);
-			setUserAnswer(savedDraft);
-
-			isInitialMount.current = false;
-		} else {
-			// 場景：切換篇章 (Topic Switch)
-			// 根據 progress 尋找該篇章中第一個尚未完成（或是尚未有紀錄）的題目
-			const firstUndone = questions.findIndex(
-				(q) => !progress[q.QID] || progress[q.QID].length === 0
-			);
-
-			// 如果全部都做過了，就回到第一題
-			setCurrentIndex(firstUndone === -1 ? 0 : firstUndone);
-			setUserAnswer(""); // 切換篇章時重設草稿
-		}
-
-		// 切換篇章或重載後，重設結果狀態
-		setResult(null);
-		setSubmittedAnswer("");
-		setHint(null);
-		setFramework(null);
-	}, [topic, questions.length]);
-
-	// 保存當前狀態到 localStorage
-	useEffect(() => {
-		localStorage.setItem("dse_last_index", currentIndex.toString());
-	}, [currentIndex]);
-
-	useEffect(() => {
-		localStorage.setItem("dse_last_draft", userAnswer);
-	}, [userAnswer]);
-	// -------------------
 
 	const parsedContent = useMemo(() => {
 		if (!currentQuestion) return { options: null, headerLines: [] };
@@ -177,7 +125,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 		if (isRandom)
 			setQuestions([...initialQuestions].sort(() => Math.random() - 0.5));
 		else setQuestions(initialQuestions);
-	}, [initialQuestions, isRandom]);
+	}, [topic, initialQuestions, isRandom]);
 
 	useEffect(() => {
 		const history = progress[currentQuestion?.QID];
@@ -189,16 +137,31 @@ const QuizMode: React.FC<QuizModeProps> = ({
 			setResult(saved.result);
 			setUserAnswer(saved.answer);
 		} else {
-			// 注意：這裡不應該在 [currentIndex] 改變時暴力重設 userAnswer，
-			// 因為上面切換篇章的邏輯已經處理了這件事，避免覆蓋正在輸入的內容。
 			setResult(null);
 			setSubmittedAnswer("");
+			if (sessionState && currentIndex === sessionState.index) {
+				setUserAnswer(sessionState.answer);
+			} else {
+				setUserAnswer("");
+			}
+			setVocabularyAnswers({});
+			setSelectedOptions([]);
 		}
 		setError(null);
 		setHint(null);
 		setFramework(null);
 		setIsJumpInputVisible(false);
-	}, [currentIndex, currentQuestion?.QID]);
+	}, [topic, currentIndex, currentQuestion?.QID]);
+
+	useEffect(() => {
+		if (
+			onUpdateSession &&
+			(currentIndex !== sessionState?.index ||
+				userAnswer !== sessionState?.answer)
+		) {
+			onUpdateSession(currentIndex, userAnswer);
+		}
+	}, [currentIndex, userAnswer, onUpdateSession]);
 
 	const handleNavClose = useCallback(() => {
 		setIsNavExiting(true);
@@ -252,7 +215,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 						comment: isCorrect
 							? "答案正確。"
 							: `答案不正確。正確答案為「${correctAnswer}」。\n${answerDescription}`,
-					},
+					}
 				],
 				overallComment: isCorrect
 					? "選擇正確，繼續保持！"
@@ -295,7 +258,15 @@ const QuizMode: React.FC<QuizModeProps> = ({
 			)
 				onMistake(currentQuestion.QID, true);
 		} catch (err: any) {
-			console.error(err);
+			let message = "";
+
+			if (err.message.includes("is not a valid model ID")) {
+				message = `Incorrect model name. Do not attempt to modify this if you are not familiar with web development.\nTo resolve this issue, enter "localStorage.modelID = "xiaomi/mimo-v2-flash:free"" in the console and reload.`
+			} else if (err.message.includes("SyntaxError: JSON Parse error: Unrecognized token")) {
+				message = `Please try again; AI output failed. If the problem persists, please seek support or submit a problem report.\nWe're sorry, this free model may have issues.`
+			}
+
+			alert(`${err.message}\n${message}`)
 			setError(err.message || "發生錯誤");
 		} finally {
 			setIsGrading(false);
@@ -434,11 +405,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 												text={q.question
 													.map((sq) => sq.text)
 													.join("")}
-												className={
-													currentIndex === idx
-														? "[&_p]:!text-white"
-														: ""
-												}
+												classList={currentIndex === idx ? { p: "!text-white" } : {}}
 											/>
 										</div>
 									</button>
