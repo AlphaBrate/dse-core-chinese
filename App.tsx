@@ -8,11 +8,15 @@ import MistakesMode from "./components/MistakesMode";
 import OriginalMode from "./components/OriginalMode";
 import Layout from "./components/Layout";
 import ActivationHintModal from "./components/ActivationHintModal";
-import AIServiceHint from "./components/AIServiceHint";
 
 const App: React.FC = () => {
 	const [mode, setMode] = useState<AppMode>(AppMode.Quiz);
-	const [selectedTopic, setSelectedTopic] = useState<string>(TOPICS[0]);
+
+	// 1. 立即從 localStorage 回復上次選擇的篇章
+	const [selectedTopic, setSelectedTopic] = useState<string>(() => {
+		return localStorage.getItem("dse_last_topic") || TOPICS[0];
+	});
+
 	const [questions, setQuestions] = useState<Question[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [mistakeIds, setMistakeIds] = useState<string[]>([]);
@@ -24,12 +28,13 @@ const App: React.FC = () => {
 	const [translationType, setTranslationType] = useState<"word" | "sentence">(
 		"sentence"
 	);
-	const [quizSessions, setQuizSessions] = useState<
-		Record<string, { index: number; answer: string }>
-	>({});
 
 	useEffect(() => {
-		// Detect user_api_key in localStorage
+		// 紀錄最後訪問的篇章名
+		localStorage.setItem("dse_last_topic", selectedTopic);
+	}, [selectedTopic]);
+
+	useEffect(() => {
 		const userKey = localStorage.getItem("user_api_key");
 		const hintDismissed = sessionStorage.getItem("dse_key_hint_dismissed");
 
@@ -123,17 +128,6 @@ const App: React.FC = () => {
 		});
 	};
 
-	const updateQuizSession = (
-		topic: string,
-		index: number,
-		answer: string
-	) => {
-		setQuizSessions((prev) => ({
-			...prev,
-			[topic]: { index, answer },
-		}));
-	};
-
 	const handleDismissHint = () => {
 		setShowKeyHint(false);
 		sessionStorage.setItem("dse_key_hint_dismissed", "true");
@@ -147,7 +141,6 @@ const App: React.FC = () => {
 
 	return (
 		<>
-			<AIServiceHint />
 			{showKeyHint && (
 				<ActivationHintModal
 					onClose={handleDismissHint}
@@ -165,11 +158,13 @@ const App: React.FC = () => {
 				isGuideOpen={isGuideOpen}
 				setIsGuideOpen={setIsGuideOpen}
 			>
-				{/* Optimized responsive container */}
-				<div className="max-w-4xl mx-auto py-0 lg:py-6 sm:py-8 px-0 lg:px-4 min-h-[60vh]">
+				<div className="max-w-4xl mx-auto py-8 px-4 min-h-[60vh]">
 					{isLoading ? (
 						<div className="flex flex-col items-center justify-center py-20 animate-pulse">
 							<div className="w-16 h-16 border-4 border-brandBlue/20 border-t-brandBlue rounded-full animate-spin mb-4"></div>
+							<p className="text-coreMuted font-medium">
+								正在載入專屬數據庫...
+							</p>
 						</div>
 					) : (
 						<>
@@ -191,14 +186,6 @@ const App: React.FC = () => {
 									mistakeIds={mistakeIds}
 									progress={progress}
 									onSaveProgress={saveProgress}
-									sessionState={quizSessions[selectedTopic]}
-									onUpdateSession={(idx, ans) =>
-										updateQuizSession(
-											selectedTopic,
-											idx,
-											ans
-										)
-									}
 								/>
 							)}
 
