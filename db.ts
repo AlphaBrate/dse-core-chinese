@@ -1,5 +1,5 @@
 export const db = {
-	name: "AlphaBrateDB",
+	name: "AlbDSEUserProgress",
 	version: 1,
 	storeName: "sessions",
 
