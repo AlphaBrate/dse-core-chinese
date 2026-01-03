@@ -65,7 +65,7 @@ export const gradeAnswer = async (
        - **feedback 數組必須為空 []**。嚴禁在這種情況下透露正確答案。
     3. 如果學生的答案表達「不知道」、「不會做」，請給予鼓勵性的 overallComment，但同樣將 feedback 設為空 []。
 	4. 每一個 point 用戶不管答對答錯都應該有 comment。
-	5. pointIndex 自 0 開始
+	5. pointIndex 自 0 開始。
 
     【評分準則】：
     - 「exact」：針對原文摘錄。
@@ -74,6 +74,7 @@ export const gradeAnswer = async (
 
 	重要提示：
 	- 你必須只輸出一個 JSON 對象，不得輸出任何其他東西，第一個字符必須是 「{」必須以「}」结尾。
+	- 確保內容中不包括錯誤的格式，比如用 「 替換掉了 " 字符符號。必須注意。
 
     返回 JSON 對象：
     {
@@ -102,11 +103,12 @@ export const gradeAnswer = async (
   `;
 
 	try {
-		const content = await callOpenRouter(
+		let content = await callOpenRouter(
 			systemInstruction,
 			promptText,
 			true
 		);
+		content = content.replaceAll(":「", `:"`);
 		if (localStorage.printAIOutput === "true") console.log(content);
 		return JSON.parse(content) as GradingResult;
 	} catch (error) {
