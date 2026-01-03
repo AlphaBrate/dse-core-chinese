@@ -106,6 +106,7 @@ export const gradeAnswer = async (
 			promptText,
 			true
 		);
+		if (localStorage.printAIOutput === "true") console.log(content);
 		return JSON.parse(content) as GradingResult;
 	} catch (error) {
 		console.error("Grading error:", error);
@@ -129,6 +130,7 @@ export const getQuestionHint = async (question: Question): Promise<string> => {
 
 	try {
 		const content = await callOpenRouter(systemInstruction, promptText);
+		if (localStorage.printAIOutput === "true") console.log(content);
 		return content.trim() || "無法生成提示。";
 	} catch (error) {
 		return "提示功能暫時無法使用。";
@@ -154,6 +156,7 @@ export const getAnswerFramework = async (
 
 	try {
 		const content = await callOpenRouter(systemInstruction, promptText);
+		if (localStorage.printAIOutput === "true") console.log(content);
 		return content.trim() || "無法生成答題框架。";
 	} catch (error) {
 		return "框架功能暫時無法使用。";
@@ -196,6 +199,7 @@ export const analyzeWeaknesses = async (
 
 	try {
 		const content = await callOpenRouter(systemInstruction, promptText);
+		if (localStorage.printAIOutput === "true") console.log(content);
 		return content || "暫時無法分析弱點。";
 	} catch (error) {
 		return "分析功能暫時不可用。";
