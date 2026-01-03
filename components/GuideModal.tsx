@@ -420,74 +420,514 @@ const GuideModal: React.FC<GuideModalProps> = ({
 					)}
 
 					{activeTab === "guide" && (
-						<div className="space-y-12 animate-in blur-in">
-							<section>
-								<h3 className="text-xl font-bold mb-6 border-l-4 border-brandBlue pl-4 dark:text-white">
-									1. 核心字段定義 (Core Fields)
-								</h3>
-								<div className="overflow-x-auto rounded-[32px] border border-coreBorder dark:border-darkBorder bg-coreGray/20 dark:bg-white/5 shadow-sm">
+						<div className="space-y-16 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+							{/* 1. 核心數據結構定義 */}
+							<section className="space-y-8">
+								<div className="flex items-center gap-4 mb-8">
+									<h3 className="text-2xl font-black border-l-8 border-brandBlue pl-6 dark:text-white text-brandDark tracking-tight">
+										1. 核心數據結構定義 (Data Schema)
+									</h3>
+								</div>
+
+								<div className="overflow-x-auto rounded-[40px] border border-coreBorder dark:border-darkBorder bg-white/50 dark:bg-white/5 shadow-xl backdrop-blur-md">
 									<table className="w-full text-sm">
-										<thead className="bg-coreGray/50 dark:bg-white/5">
+										<thead className="bg-coreGray/10 dark:bg-white/5">
 											<tr>
-												<th className="px-8 py-5 text-left font-black text-coreMuted uppercase tracking-widest text-[0.65rem]">
+												<th className="px-10 py-6 text-left font-black text-coreMuted uppercase tracking-widest text-[0.7rem]">
 													字段
 												</th>
-												<th className="px-8 py-5 text-left font-black text-coreMuted uppercase tracking-widest text-[0.65rem]">
+												<th className="px-10 py-6 text-left font-black text-coreMuted uppercase tracking-widest text-[0.7rem]">
 													類型
 												</th>
-												<th className="px-8 py-5 text-left font-black text-coreMuted uppercase tracking-widest text-[0.65rem]">
-													說明
+												<th className="px-10 py-6 text-left font-black text-coreMuted uppercase tracking-widest text-[0.7rem]">
+													QuizMode 組件交互行為映射
 												</th>
 											</tr>
 										</thead>
 										<tbody className="divide-y divide-coreBorder dark:divide-darkBorder">
-											{[
-												"QID",
-												"type",
-												"question",
-												"answer",
-											].map((field) => (
-												<tr key={field}>
-													<td className="px-8 py-5 font-mono text-brandBlue font-bold">
-														{field}
-													</td>
-													<td className="px-8 py-5 dark:text-white/70">
-														String
-													</td>
-													<td className="px-8 py-5 dark:text-white/70">
-														{field === "QID"
-															? "唯一識別碼。如 CHI-山居秋暝-001"
-															: field === "type"
-															? "題目類型：mc, vocabulary, copy, analysis"
-															: "結構化數據對象"}
-													</td>
-												</tr>
-											))}
+											<tr>
+												<td className="px-10 py-7 font-mono text-brandBlue font-bold text-base">
+													QID
+												</td>
+												<td className="px-10 py-7 font-mono text-xs text-brandPurple font-bold italic">
+													String
+												</td>
+												<td className="px-10 py-7 dark:text-white/80 leading-relaxed">
+													<span className="font-bold text-brandDark dark:text-white">
+														全局唯一索引。
+													</span>
+													<br />
+													用於{" "}
+													<code className="text-xs">
+														mistakeIds
+													</code>{" "}
+													(錯題緩存)
+													及進度持久化。格式建議：
+													<code className="bg-brandBlue/10 text-brandBlue px-1.5 py-0.5 rounded text-xs font-bold">
+														CHI-篇章名-序號
+													</code>
+													。<br />
+													<span className="text-[0.7rem] text-coreMuted italic">
+														Example:
+														"CHI-六國論-001"
+													</span>
+												</td>
+											</tr>
+											<tr>
+												<td className="px-10 py-7 font-mono text-brandBlue font-bold text-base">
+													type
+												</td>
+												<td className="px-10 py-7 font-mono text-xs text-brandPurple font-bold italic">
+													Enum
+												</td>
+												<td className="px-10 py-7 dark:text-white/80 leading-relaxed">
+													<p className="mb-2 font-bold underline decoration-brandBlue/30 text-xs">
+														決定交互模式：
+													</p>
+													<ul className="space-y-2 text-xs">
+														<li>
+															•{" "}
+															<code className="text-brandBlue font-bold">
+																vocabulary
+															</code>
+															: 激活分段填空。每組{" "}
+															<code className="font-mono">
+																score-reference
+															</code>{" "}
+															會在 UI 生成獨立
+															Input，存入{" "}
+															<code className="text-brandPurple font-mono">
+																vocabularyAnswers
+															</code>
+															。
+														</li>
+														<li>
+															•{" "}
+															<code className="text-brandBlue font-bold">
+																analysis
+															</code>
+															:
+															激活通用答題區。檢測到{" "}
+															<code className="font-mono">
+																A/B/C/D
+															</code>{" "}
+															時自動轉向選項模式。
+														</li>
+														<li>
+															•{" "}
+															<code className="text-brandBlue font-bold">
+																copy
+															</code>
+															: 原文摘錄。觸發 AI
+															嚴格字符比對。
+														</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+												<td className="px-10 py-7 font-mono text-brandBlue font-bold text-base">
+													question
+												</td>
+												<td className="px-10 py-7 font-mono text-xs text-brandPurple font-bold italic">
+													Array&lt;Obj&gt;
+												</td>
+												<td className="px-10 py-7 dark:text-white/80 leading-relaxed">
+													<p className="mb-2 font-semibold">
+														分段渲染對象：
+													</p>
+													<ul className="list-disc list-inside space-y-2 text-xs opacity-90">
+														<li>
+															<code className="text-brandBlue font-bold">
+																text
+															</code>
+															: 支持 Markdown
+															渲染（如{" "}
+															<code className="font-bold">
+																**字詞**
+															</code>
+															）。
+														</li>
+														<li>
+															<code className="text-brandBlue font-bold">
+																score-reference
+															</code>
+															: [Int]
+															陣列。將段落與{" "}
+															<code className="font-mono italic">
+																answer
+															</code>{" "}
+															池建立神經連接。
+														</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+												<td className="px-10 py-7 font-mono text-brandBlue font-bold text-base">
+													answer
+												</td>
+												<td className="px-10 py-7 font-mono text-xs text-brandPurple font-bold italic">
+													Array&lt;Obj&gt;
+												</td>
+												<td className="px-10 py-7 dark:text-white/80 leading-relaxed">
+													<p className="mb-1 font-semibold text-[0.65rem] text-coreMuted uppercase tracking-widest">
+														評分內核 (Grading
+														Engine)：
+													</p>
+													<code className="block p-3 rounded-xl bg-gray-50 dark:bg-black/20 text-[0.7rem] font-mono leading-relaxed mb-2">
+														&#123; "text":
+														"答案文字", "label":
+														"point" | "exact",
+														"score": 分值 &#125;
+													</code>
+													<p className="text-[0.65rem] italic">
+														系統調用{" "}
+														<code className="text-brandPurple italic font-bold underline">
+															gradeAnswer()
+														</code>{" "}
+														將用戶輸入與此處文本進行權重比對。
+													</p>
+												</td>
+											</tr>
 										</tbody>
 									</table>
 								</div>
 							</section>
 
-							<section>
-								<h3 className="text-xl font-bold mb-6 border-l-4 border-brandBlue pl-4 dark:text-white">
-									2. 題目類型規範
+							{/* 2. 交互渲染進階準則 */}
+							<section className="space-y-8 text-brandDark dark:text-white">
+								<h3 className="text-2xl font-black border-l-4 border-brandBlue pl-4">
+									2. 交互渲染進階準則 (Interaction Specs)
 								</h3>
+
 								<div className="grid md:grid-cols-2 gap-8">
-									<div className="p-10 rounded-[40px] bg-amber-50 dark:bg-amber-500/5 border border-amber-100 dark:border-amber-500/20 shadow-sm">
-										<h4 className="font-bold text-amber-900 dark:text-amber-400 mb-3 text-lg">
-											mc (選擇題)
+									{/* 選擇題 */}
+									<div className="group p-8 rounded-[40px] bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-500/5 dark:to-orange-500/5 border border-amber-100 dark:border-amber-500/20 shadow-sm transition-all">
+										<div className="flex items-center gap-3 mb-6">
+											<div className="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center font-black shadow-lg">
+												A
+											</div>
+											<h4 className="font-bold text-amber-900 dark:text-amber-400 text-lg">
+												智能選擇題模式
+											</h4>
+										</div>
+										<div className="text-sm space-y-4 text-amber-900/80 dark:text-white/70">
+											<p>
+												●{" "}
+												<span className="font-bold italic">
+													觸發條件
+												</span>
+												：
+												<code className="bg-white/80 px-1 font-mono">
+													type: "analysis"
+												</code>{" "}
+												且題幹 text 符合{" "}
+												<code className="bg-white/80 px-1 font-mono">
+													/^A\s/m
+												</code>
+												。
+											</p>
+											<p>
+												●{" "}
+												<span className="font-bold italic">
+													編寫格式
+												</span>
+												：選項間必須包含換行符{" "}
+												<code className="text-brandPurple font-bold">
+													\n
+												</code>
+												。
+											</p>
+											<div className="p-4 bg-white/50 dark:bg-black/20 rounded-2xl border border-amber-200 font-mono text-[0.7rem] leading-tight text-brandDark dark:text-brandLight">
+												"text": "A 第一項\nB 第二項\nC
+												第三項\nD 第四項"
+											</div>
+											<p className="text-[0.7rem] italic opacity-70">
+												※ 答案僅需對應英文字母（如
+												"C"），系統將自動更新
+												`selectedOptions` 狀態。
+											</p>
+										</div>
+									</div>
+
+									{/* 字詞解釋 */}
+									<div className="group p-8 rounded-[40px] bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-500/5 dark:to-indigo-500/5 border border-blue-100 dark:border-blue-500/20 shadow-sm transition-all">
+										<div className="flex items-center gap-3 mb-6">
+											<div className="w-12 h-12 rounded-2xl bg-blue-500 text-white flex items-center justify-center font-black shadow-lg italic text-xl font-serif">
+												V
+											</div>
+											<h4 className="font-bold text-blue-900 dark:text-blue-400 text-lg">
+												詞義解釋分段模式
+											</h4>
+										</div>
+										<div className="text-sm space-y-4 text-blue-900/80 dark:text-white/70">
+											<p>
+												●{" "}
+												<span className="font-bold italic">
+													觸發條件
+												</span>
+												：
+												<code className="bg-white/80 px-1 font-mono">
+													type: "vocabulary"
+												</code>
+												。
+											</p>
+											<p>
+												●{" "}
+												<span className="font-bold italic">
+													標記規則
+												</span>
+												：使用{" "}
+												<code className="text-brandBlue font-bold">
+													**雙星號**
+												</code>{" "}
+												標示粗體字詞。
+											</p>
+											<p>
+												●{" "}
+												<span className="font-bold italic">
+													填空渲染
+												</span>
+												：每個帶有{" "}
+												<code className="text-brandPurple font-bold">
+													score-reference
+												</code>{" "}
+												的物件將在前端生成一個 Input
+												框，並與{" "}
+												<code className="font-mono italic underline">
+													vocabularyAnswers
+												</code>{" "}
+												陣列綁定。
+											</p>
+										</div>
+									</div>
+								</div>
+							</section>
+
+							{/* 3. 標準範例展示 */}
+							<section className="space-y-6">
+								<h3 className="text-xl font-bold dark:text-white tracking-tight">
+									3. 標準編寫範例 (Standard Implementation)
+								</h3>
+
+								<div className="relative group overflow-hidden rounded-[32px] shadow-2xl">
+									<div className="absolute top-4 right-4 text-[0.6rem] bg-brandBlue text-white px-2 py-1 rounded-full opacity-50 font-mono">
+										JSON SPEC
+									</div>
+									<div className="p-8 bg-brandDark text-brandLight font-mono text-[0.8rem] leading-relaxed overflow-x-auto border border-white/10">
+										<pre className="whitespace-pre-wrap">
+											{`{
+  "QID": "CHI-論語-014",
+  "type": "analysis",
+  "question": [
+    { 
+      "text": "文中在說明君子和小人的分別時，運用了以下哪種修辭手法？\\n", 
+      "score-reference": [0] 
+    },
+    { 
+      "text": "A 層遞\\nB 誇飾\\nC 比喻\\nD 對比", 
+      "score-reference": [0] 
+    }
+  ],
+  "score": 2,
+  "answer": [
+    { "text": "D", "label": "point", "score": 2 }
+  ]
+}`}
+										</pre>
+									</div>
+								</div>
+								<div className="p-4 bg-brandBlue/5 border-l-4 border-brandBlue rounded-r-xl">
+									<p className="text-[0.7rem] text-brandDark dark:text-white/80 leading-relaxed font-bold italic">
+										※ 開發者提示：`QuizMode`
+										組件在點擊「提交答案」時，會將索引 0
+										的用戶輸入與 `answer[0].text`
+										進行自動比對並回傳 `onSaveProgress`。
+									</p>
+								</div>
+							</section>
+							{/* 4. 原文與翻譯數據架構 (Reading/Study Mode) */}
+							<section className="space-y-8">
+								<div className="flex items-center gap-4 mb-8">
+									<h3 className="text-2xl font-black border-l-8 border-brandPurple pl-6 dark:text-white text-brandDark tracking-tight">
+										4. 原文與翻譯數據架構 (Source Text
+										Guide)
+									</h3>
+								</div>
+
+								<div className="grid md:grid-cols-3 gap-6">
+									{/* 基礎屬性 */}
+									<div className="md:col-span-1 space-y-4">
+										<div className="p-6 rounded-[32px] bg-white dark:bg-white/5 border border-coreBorder dark:border-darkBorder shadow-sm">
+											<h4 className="font-bold mb-4 text-brandPurple flex items-center gap-2">
+												<span className="w-2 h-2 rounded-full bg-brandPurple" />
+												根屬性定義
+											</h4>
+											<ul className="space-y-3 text-xs text-coreMuted leading-relaxed">
+												<li>
+													•{" "}
+													<code className="text-brandBlue font-bold">
+														title
+													</code>
+													: 篇章完整名稱
+												</li>
+												<li>
+													•{" "}
+													<code className="text-brandBlue font-bold">
+														author
+													</code>
+													: 作者姓名
+												</li>
+												<li>
+													•{" "}
+													<code className="text-brandBlue font-bold">
+														content
+													</code>
+													: 核心內容陣列
+												</li>
+											</ul>
+										</div>
+										<div className="p-6 rounded-[32px] bg-brandPurple/5 border border-brandPurple/20">
+											<p className="text-[0.7rem] leading-relaxed text-brandPurple font-medium">
+												<span className="font-black italic block mb-1">
+													PRO TIP:
+												</span>
+												在渲染層，系統會遍歷{" "}
+												<code className="font-mono">
+													content
+												</code>{" "}
+												陣列。建議以「聯」或「自然段」作為陣列元素單位，以確保移動端閱讀的對照體驗。
+											</p>
+										</div>
+									</div>
+
+									{/* 內容對象詳解 */}
+									<div className="md:col-span-2 p-8 rounded-[40px] bg-white dark:bg-white/5 border border-coreBorder dark:border-darkBorder shadow-xl">
+										<h4 className="font-bold mb-6 text-lg dark:text-white">
+											Content 元素內部結構
 										</h4>
-										<p className="text-sm opacity-80 dark:text-white/70 leading-relaxed">
-											選項以 A/B/C/D 或 1/2/3/4
-											開頭。系統支持多行選項解析，並能自動對齊。
+										<div className="space-y-6">
+											<div className="flex gap-4">
+												<div className="flex-none w-1 font-mono text-brandBlue font-black text-lg">
+													/
+												</div>
+												<div>
+													<p className="font-bold text-sm dark:text-white">
+														source (原文)
+													</p>
+													<p className="text-xs text-coreMuted mt-1">
+														儲存該段落的原始文言文。支持使用全形標點符號。
+													</p>
+												</div>
+											</div>
+											<div className="flex gap-4">
+												<div className="flex-none w-1 font-mono text-brandPurple font-black text-lg">
+													/
+												</div>
+												<div className="w-full">
+													<p className="font-bold text-sm dark:text-white">
+														translation (翻譯層級)
+													</p>
+													<div className="grid grid-cols-2 gap-4 mt-3">
+														<div className="p-4 rounded-2xl bg-gray-50 dark:bg-black/20 border border-dashed border-coreBorder">
+															<p className="text-[0.65rem] font-black text-brandPurple uppercase mb-2">
+																word (字詞註釋)
+															</p>
+															<p className="text-[0.7rem] leading-normal opacity-80 italic">
+																陣列格式。建議格式：
+																<br />
+																「字：解釋」。
+																<br />
+																用於 Hover
+																彈窗或側欄註解。
+															</p>
+														</div>
+														<div className="p-4 rounded-2xl bg-gray-50 dark:bg-black/20 border border-dashed border-coreBorder">
+															<p className="text-[0.65rem] font-black text-brandBlue uppercase mb-2">
+																sentence
+																(全文語譯)
+															</p>
+															<p className="text-[0.7rem] leading-normal opacity-80 italic">
+																字串格式。該段原文的完整白話翻譯。
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+
+							{/* 5. 原文 JSON 完整示例 */}
+							<section className="space-y-6">
+								<div className="flex items-center justify-between">
+									<h3 className="text-xl font-bold dark:text-white tracking-tight">
+										5. 原文編寫範例 (Content Source
+										Implementation)
+									</h3>
+									<span className="px-3 py-1 rounded-full bg-green-500/10 text-green-500 text-[0.6rem] font-black tracking-widest uppercase">
+										Validated
+									</span>
+								</div>
+
+								<div className="relative group overflow-hidden rounded-[32px] shadow-2xl border border-white/10">
+									<div className="p-8 bg-[#1e1e1e] text-[#d4d4d4] font-mono text-[0.8rem] leading-relaxed overflow-x-auto">
+										<pre className="">
+											{`{
+  "title": "山居秋暝",
+  "author": "王維",
+  "content": [
+    {
+      "source": "空山新雨後，天氣晚來秋。",
+      "translation": {
+        "word": [
+          "空山：空曠幽靜的山",
+          "新：剛剛",
+          "晚：傍晚"
+        ],
+        "sentence": "空曠幽靜的山林剛下一場雨，傍晚時分，天氣顯現出秋天的涼意。"
+      }
+    },
+    {
+      "source": "明月松間照，清泉石上流。",
+      "translation": {
+        "word": [
+          "照：照耀",
+          "流：流淌"
+        ],
+        "sentence": "皎潔的月亮在松樹林間照耀，清澈的泉水在山石之上流淌。"
+      }
+    }
+  ]
+}`}
+										</pre>
+									</div>
+								</div>
+
+								<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+									<div className="flex items-start gap-4 p-5 rounded-3xl bg-amber-500/5 border border-amber-500/20">
+										<div className="p-2 rounded-xl bg-amber-500 text-white font-black text-xs">
+											!
+										</div>
+										<p className="text-[0.7rem] text-amber-900 dark:text-amber-200 leading-relaxed">
+											<strong>格式注意：</strong> 在{" "}
+											<code className="font-bold italic">
+												word
+											</code>{" "}
+											陣列中，請統一使用「：」（全形冒號）分隔字詞與解釋，以便前端的正則表達式能準確分割並進行樣式加強。
 										</p>
 									</div>
-									<div className="p-10 rounded-[40px] bg-blue-50 dark:bg-blue-500/5 border border-blue-100 dark:border-blue-500/20 shadow-sm">
-										<h4 className="font-bold text-blue-900 dark:text-blue-400 mb-3 text-lg">
-											vocabulary (字詞解釋)
-										</h4>
-										<p className="text-sm opacity-80 dark:text-white/70 leading-relaxed">
-											針對粗體字進行解釋。題目中需包含「**」標記關鍵詞。
+									<div className="flex items-start gap-4 p-5 rounded-3xl bg-blue-500/5 border border-blue-500/20">
+										<div className="p-2 rounded-xl bg-blue-500 text-white font-black text-xs">
+											?
+										</div>
+										<p className="text-[0.7rem] text-blue-900 dark:text-blue-200 leading-relaxed">
+											<strong>多重解釋：</strong>{" "}
+											若一個字有多重意義，請在解釋中使用「/」分隔（例如：
+											<code className="italic">
+												"善：妥善/出色"
+											</code>
+											），系統會自動識別並進行分行顯示處理。
 										</p>
 									</div>
 								</div>

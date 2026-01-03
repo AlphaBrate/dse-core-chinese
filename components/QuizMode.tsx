@@ -731,7 +731,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 								<label className="block text-[0.6rem] font-bold text-coreMuted uppercase mb-4 opacity-60">
 									您的作答紀錄
 								</label>
-								<div className="bg-white dark:bg-darkBg p-4 lg:p-8 rounded-[24px] border border-coreBorder dark:border-white/10 text-coreText dark:text-white/90 italic text-xl font-bold leading-relaxed shadow-sm whitespace-pre-line">
+								<div className="bg-white dark:bg-darkBg p-4 lg:p-8 rounded-[24px] border border-coreBorder dark:border-white/10 text-coreText dark:text-white/90 italic text-xl font-bold leading-relaxed shadow-sm whitespace-pre-line overflow-x-hidden text-ellipsis">
 									{submittedAnswer}
 								</div>
 							</div>
