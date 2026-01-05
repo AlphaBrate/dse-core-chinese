@@ -410,7 +410,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 											setCurrentIndex(idx);
 											handleNavClose();
 										}}
-										className={`w-full p-6 rounded-core border transition-all duration-500 ease-liquid group ${
+										className={`w-full h-fit flex flex-col overflow-hidden p-6 rounded-core border transition-all duration-500 ease-liquid group ${
 											currentIndex === idx
 												? "bg-brandBlue text-white border-brandBlue shadow-xl -translate-y-1"
 												: "bg-coreGray/30 dark:bg-white/5 text-coreText dark:text-white/80 border-transparent hover:border-coreMuted/10"
@@ -425,7 +425,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 												<i className="fas fa-heart text-red-500 scale-75"></i>
 											)}
 										</div>
-										<div className="font-bold line-clamp-2 text-base leading-snug text-left text-coreText dark:text-white">
+										<div className="flex font-bold line-clamp-2 text-base leading-snug text-left text-coreText dark:text-white">
 											<MarkdownText
 												text={q.question
 													.map((sq) => sq.text)
@@ -435,6 +435,7 @@ const QuizMode: React.FC<QuizModeProps> = ({
 														? { p: "!text-white" }
 														: {}
 												}
+												className="nopreline h-14 text-ellipsis"
 											/>
 										</div>
 									</button>

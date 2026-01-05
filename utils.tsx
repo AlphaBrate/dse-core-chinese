@@ -40,7 +40,7 @@ export const MarkdownText: React.FC<MarkdownTextProps> = ({
 
 	return (
 		<div
-			className={`whitespace-pre-line ${className} ${
+			className={`${className.includes("nopreline") ? className : "whitespace-pre-line " + className} ${
 				classList.container || ""
 			}`}
 		>
