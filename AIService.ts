@@ -69,6 +69,7 @@ export const gradeAnswer = async (
     3. 如果學生的答案表達「不知道」、「不會做」，請給予鼓勵性的 overallComment，但同樣將 feedback 設為空 []。
 	4. 每一個 point 用戶不管答對答錯都應該有 comment。
 	5. pointIndex 自 0 開始。
+	6. 这个考试接受简体字。学生可以有错别字或者异体字。
 
     【評分準則】：
     - 「exact」：針對原文摘錄。
