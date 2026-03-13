@@ -1,7 +1,9 @@
 import { Question, GradingResult, SavedResult } from "./types";
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
-const MODEL_NAME = localStorage.modelID || "xiaomi/mimo-v2-flash:free";
+const MODEL_NAME = localStorage.modelID || "stepfun/step-3.5-flash:free";
+
+const errorNotes = `Failed to connect with ${MODEL_NAME}. Try using other models by editing localStorage.modelID.`
 
 console.log("Using Model " + MODEL_NAME);
 
@@ -35,6 +37,7 @@ async function callOpenRouter(
 
 	if (!response.ok) {
 		const errorData = await response.json();
+		console.log(errorNotes);
 		throw new Error(
 			errorData.error?.message || "OpenRouter Request Failed"
 		);
@@ -114,6 +117,7 @@ export const gradeAnswer = async (
 	} catch (error) {
 		console.error("Grading error:", error);
 
+		console.log(errorNotes);
 		throw new Error(error);
 	}
 };
@@ -136,6 +140,7 @@ export const getQuestionHint = async (question: Question): Promise<string> => {
 		if (localStorage.printAIOutput === "true") console.log(content);
 		return content.trim() || "無法生成提示。";
 	} catch (error) {
+		console.log(errorNotes);
 		return "提示功能暫時無法使用。";
 	}
 };
@@ -203,8 +208,10 @@ export const analyzeWeaknesses = async (
 	try {
 		const content = await callOpenRouter(systemInstruction, promptText);
 		if (localStorage.printAIOutput === "true") console.log(content);
+		console.log(errorNotes);
 		return content || "暫時無法分析弱點。";
 	} catch (error) {
+		console.log(errorNotes);
 		return "分析功能暫時不可用。";
 	}
 };
