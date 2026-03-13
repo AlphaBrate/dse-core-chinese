@@ -13,7 +13,8 @@ export const TOPIC_MAP: Record<string, string> = {
   '始得西山宴遊記': `${BASE_URL}data/shidexishanyanyouji.json`,
   '六國論': `${BASE_URL}data/liuguolun.json`,
   '論仁、論孝、論君子': `${BASE_URL}data/lunyu.json`,
-  '魚我所欲也': `${BASE_URL}data/yuwosuoyuye.json`
+  '魚我所欲也': `${BASE_URL}data/yuwosuoyuye.json`,
+  '勸學': `${BASE_URL}data/quanxue.json`
 };
 
 export const SOURCE_MAP: Record<string, string> = {
@@ -28,7 +29,8 @@ export const SOURCE_MAP: Record<string, string> = {
   '始得西山宴遊記': `${BASE_URL}data/source/shidexishanyanyouji.json`,
   '六國論': `${BASE_URL}data/source/liuguolun.json`,
   '論仁、論孝、論君子': `${BASE_URL}data/source/lunyu.json`,
-  '魚我所欲也': `${BASE_URL}data/source/yuwosuoyuye.json`
+  '魚我所欲也': `${BASE_URL}data/source/yuwosuoyuye.json`,
+  '勸學': `${BASE_URL}data/source/quanxue.json`
 };
 
 export const TOPICS = Object.keys(TOPIC_MAP);
