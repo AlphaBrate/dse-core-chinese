@@ -31,7 +31,7 @@ async function callNIM(
                 { role: "system", content: systemInstruction },
                 { role: "user", content: promptText },
             ],
-            response_format: isJson ? { type: "json_object" } : undefined,
+            // response_format: isJson ? { type: "json_object" } : undefined,
         }),
     });
 
