@@ -37,7 +37,7 @@
 * **Frontend**: React 19 (ESM Mode)
 * **Styling**: Tailwind CSS
 * **Icons**: Font Awesome 6
-* **AI Engine**: OpenRouter AI API
+* **AI Engine**: NIM AI API
 * **Build System**: 無需編譯，直接透過 `index.html` 的 `importmap` 載入原生 ES Modules。
 * **Persistence**: `localStorage` (儲存學習進度、錯題集及 API Key)。
 
@@ -68,7 +68,7 @@
 
 為了使用智能閱卷功能，用戶需要配置自己的 **AI API Key**：
 
-1. 前往 [OpenRouter AI](https://openrouter.ai/) 獲取免費 API Key。
+1. 前往 [Nvidia NIM API](https://build.nvidia.com/settings/api-keys) 獲取免費 API Key。
 2. 點擊 App 右上角的 **統計圖示**。
 3. 切換至 **「API 設置」** 標籤。
 4. 粘貼密鑰並點擊保存。

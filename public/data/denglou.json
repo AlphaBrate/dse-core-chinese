@@ -1,0 +1,183 @@
+
+[
+	{
+		"QID": "CHI-登樓-001",
+		"requires": [{ "type": "knowledge", "topic": "登樓" }],
+		"question": [
+			{ "text": "解釋以下文句中的粗體字：" },
+      { "text": "「萬方多**難**此登臨」", "score-reference": [0] },
+      { "text": "「日暮**聊**為《梁甫吟》」", "score-reference": [1] }
+		],
+		"score": 4,
+		"type": "vocabulary",
+		"answer": [
+			{ "text": "難：憂患 / 劫難", "label": "exact", "score": 2 },
+			{ "text": "聊：姑且", "label": "exact", "score": 2 }
+		]
+	},
+	{
+		"QID": "CHI-登樓-002",
+		"requires": [{ "type": "knowledge", "topic": "登樓" }],
+		"question": [
+			{
+				"text": "在《登樓》一詩中，杜甫以反襯手法抒發自己的憂傷之情，試加以說明。",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 3,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "杜甫以繁花盛放的美景及鋪天蓋地的錦江春色，",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "反襯自己客居異地、憂國憂民的傷痛之情。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "杜甫以樂景寫哀情，更見其哀，加強了抒情效果。",
+				"label": "point",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-登樓-003",
+		"requires": [{ "type": "knowledge", "topic": "登樓" }],
+		"question": [
+			{
+				"text": "「錦江春色來天地，玉壘浮雲變古今。」以下哪項最能概括這兩句的特色？"
+			},
+			{
+				"text": "A 句式多變，情調悲戚。\nB 對仗工整，氣勢磅礴。\nC 誇飾巧妙，意境幽深。\nD 詞彙奇僻，氣氛凝重。",
+				"score-reference": [0]
+			}
+		],
+		"score": 2,
+		"type": "mc",
+		"answer": [
+			{
+				"text": "B",
+				"label": "exact",
+				"remark": "對仗工整，氣勢大",
+				"score": 2
+			}
+		]
+	},
+	{
+		"QID": "CHI-登樓-004",
+		"requires": [{ "type": "knowledge", "topic": "登樓" }],
+		"question": [
+			{
+				"text": "《登樓》一詩以甚麼事物比喻唐朝政權？又這事物與唐朝政權有甚麼相似之處？",
+				"score-reference": [0, 1, 2, 3]
+			}
+		],
+		"score": 4,
+		"type": "analysis",
+		"answer": [
+			{ "text": "北極星", "label": "point", "score": 1 },
+			{
+				"text": "兩者都具有穩定不變的特質。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "北極星的位置在天空固定不變，",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "而唐朝政權也地位穩固，絕不動搖。",
+				"label": "point",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-登樓-005",
+		"requires": [{ "type": "knowledge", "topic": "登樓" }],
+		"question": [
+			{
+				"text": "杜甫在《登樓》尾聯引用了甚麼典故？他又藉此抒發了甚麼情懷？",
+				"score-reference": [0, 1, 2, 3, 4, 5]
+			}
+		],
+		"score": 7,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "蜀漢後主劉禪昏庸，卻有祠廟；",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "以及諸葛亮好為《梁甫吟》的典故。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "杜甫以此諷刺唐代宗的昏庸，感嘆唐室沒有諸葛亮般的賢能之士。",
+				"label": "point",
+				"score": 1
+			},
+			{ "text": "感嘆賢才不為朝廷所用，", "label": "point", "score": 1 },
+			{
+				"text": "自傷際遇，慨嘆自己未能獲君主賞識以報效國家，",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "報國無門，只能吟詠《梁甫吟》以明志、排解鬱悶。",
+				"label": "point", "score": 2
+			}
+		]
+	},
+	{
+		"QID": "CHI-登樓-006",
+		"requires": [{ "type": "knowledge", "topic": "登樓" }],
+		"question": [
+			{
+				"text": "綜合《登樓》全詩，杜甫運用了甚麼手法來抒情？\n① 直接抒情\n② 借景抒情\n③ 運用反語\n④ 運用典故",
+				"score-reference": [0]
+			},
+			{
+				"text": "A ①、③\nB ②、④\nC ①、②、④\nD ②、③、④",
+				"score-reference": [0]
+			}
+		],
+		"score": 2,
+		"type": "mc",
+		"answer": [{ "text": "C", "label": "exact", "score": 2 }]
+	},
+	{
+		"QID": "CHI-登樓-007",
+		"requires": [
+			{ "type": "knowledge", "topic": "登樓" },
+			{ "type": "knowledge", "topic": "岳陽樓記" }
+		],
+		"question": [
+			{
+				"text": "根據《登樓》一詩，杜甫與《岳陽樓記》中「處江湖之遠，則憂其君」的「古仁人」有否相通之處？試略加說明。",
+				"score-reference": [0, 1]
+			}
+		],
+		"score": 4,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "相通。杜甫當時地位低微，遠離朝廷，正是「處江湖之遠」。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "但他仍忠君愛國，既擔憂外族侵擾，又憂心君主誤國，皆是「憂其君」的表現。",
+				"label": "point",
+				"score": 3
+			}
+		]
+	}
+]

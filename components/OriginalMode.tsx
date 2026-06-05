@@ -134,7 +134,7 @@ const PoetryLine: React.FC<LineProps> = ({ index, line, mode }) => {
         </div>
         
         <div className="py-0.5">
-          <span className="text-base md:text-xl font-black dark:text-white tracking-[0.05em] leading-tight">
+          <span className="text-base md:text-xl font-bold dark:text-white tracking-[0.05em] leading-tight">
             {line.source}
           </span>
         </div>
@@ -167,7 +167,7 @@ const PoetryLine: React.FC<LineProps> = ({ index, line, mode }) => {
 
   return (
     <div className="flex flex-col items-start w-full">
-      <div className="flex justify-start items-baseline text-base md:text-xl font-black dark:text-white tracking-[0.1em] cursor-default py-4 flex-wrap gap-x-0 gap-y-12">
+      <div className="flex justify-start items-baseline text-base md:text-xl font-bold dark:text-white tracking-[0.1em] cursor-default py-4 flex-wrap gap-x-0 gap-y-12">
         {parts.map((p, i) => {
           if (typeof p === 'string') {
             return (

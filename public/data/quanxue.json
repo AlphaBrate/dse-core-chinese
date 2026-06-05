@@ -1,0 +1,238 @@
+[
+	{
+		"QID": "CHI-勸學-001",
+		"requires": [{ "type": "knowledge", "topic": "勸學" }],
+		"question": [
+			{ "text": "試解釋以下文句中的粗體字，並把答案寫在橫線上。" },
+			{ "text": "(1) 木直**中**繩。", "score-reference": [0] },
+			{ "text": "(2) 其曲中**規**。", "score-reference": [1] },
+			{ "text": "(3) **輮**使之然也。", "score-reference": [2] },
+			{
+				"text": "(4) 假**輿**馬者，非利足也。",
+				"score-reference": [3]
+			},
+			{ "text": "(5) 積水成**淵**。", "score-reference": [4] }
+		],
+		"score": 10,
+		"type": "vocabulary",
+		"answer": [
+			{ "text": "中：符合", "label": "point", "score": 2 },
+			{ "text": "規：圓規", "label": "point", "score": 2 },
+			{ "text": "然：這樣", "label": "point", "score": 2 },
+			{ "text": "輿：車", "label": "point", "score": 2 },
+			{ "text": "淵：深水之處", "label": "point", "score": 2 }
+		]
+	},
+	{
+		"QID": "CHI-勸學-002",
+		"requires": [{ "type": "knowledge", "topic": "勸學" }],
+		"question": [
+			{ "text": "試根據文意把以下文句譯為語體文。\n" },
+			{
+				"text": "金就礪則利",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 6,
+		"type": "analysis",
+		"answer": [
+			{ "text": "刀劍", "label": "point", "score": 1 },
+			{ "text": "在磨刀石上", "label": "point", "score": 1 },
+			{ "text": "磨過就變得鋒利", "label": "point", "score": 1 }
+		]
+	},
+	{
+		"QID": "CHI-勸學-003",
+		"requires": [{ "type": "knowledge", "topic": "勸學" }],
+		"question": [
+			{ "text": "荀子以「青」與「冰」為喻有何目的？\n" },
+			{
+				"text": "A 說明天資的高低並不重要。\nB 說明要不斷累積知識，方能成大器。\nC 指出人經過學習，能改變本性。\nD 指出人經過學習，就不必借助外物。",
+				"score-reference": [0]
+			}
+		],
+		"score": 2,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "C",
+				"label": "point",
+				"remark": "內容|整合",
+				"score": 2
+			}
+		]
+	},
+	{
+		"QID": "CHI-勸學-004",
+		"requires": [{ "type": "knowledge", "topic": "勸學" }],
+		"question": [
+			{
+				"text": "在勸學中，荀子如何以「木受繩則直」、「金就礪則利」兩個比喻，說明學習的道理？是綜合有關內容說明。",
+				"score-reference": [0, 1, 2, 3]
+			}
+		],
+		"score": 4,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "木材用墨线量过就能取直，刀剑在磨刀石上磨过就会变得锋利",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "这就好比君子广泛学习不同的知识，每天省查自己",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "就能增长智慧，因而不会有过错",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "荀子借此指出，博学和修身就是提升个人能力的关键",
+				"label": "point",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-勸學-005",
+		"requires": [{ "type": "knowledge", "topic": "勸學" }],
+		"question": [
+			{ "text": "荀子笔下的君子有什么特质?\n① 德智兼备\n② 天赋异禀\n③ 举一反三\n④ 经常自省\n" },
+			{
+				"text": "A ①②\n B ①③\n C ①④\nD ②③",
+				"score-reference": [0]
+			}
+		],
+		"score": 2,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "C",
+				"label": "point",
+				"remark": "君子，指君子。智明而行无过，知明和智力有关，行无过和德有关。所以一正确。指君子。生非异也，所以二不正确。文中没有提到君子可以举一反三，所以三不正确。君子日三省乎己，所以四正确。",
+				"score": 2
+			}
+		]
+	},
+	{
+		"QID": "CHI-勸學-006",
+		"requires": [{ "type": "knowledge", "topic": "勸學" }],
+		"question": [
+			{
+				"text": "顺风而呼，声非加疾也，而闻者彰。的意思是要学习懂得善用 ________。",
+				"score-reference": [0]
+			},
+			{
+				"text": "积土成山，风雨雨焉，积水成渊，蛟龙生焉。的意思是为学必须 ________。",
+				"score-reference": [0]
+			}
+		],
+		"score": 3,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "外物",
+				"label": "exact",
+				"score": 1
+			},
+			{
+				"text": "累积",
+				"label": "exact",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-勸學-007",
+		"requires": [{ "type": "knowledge", "topic": "勸學" }],
+		"question": [
+			{
+				"text": "君子生非异也，善假于物也\n这一句在文章结构方面有什么作用？"
+			},
+			{
+				"text": "A 概括前文 \nB 统领下文\nC 承上启下\nD 强调转折",
+				"score-reference": [0]
+			}
+		],
+		"score": 5,
+		"type": "analysis",
+		"answer": [
+			{ "text": "A", "label": "point", "score": 2 }
+		]
+	},
+	{
+        "QID": "CHI-勸學-008",
+        "requires": [{ "type": "knowledge", "topic": "勸學" }],
+        "question": [
+            { "text": "在《勸學》（節錄）中，荀子如何以木材為喻，指出人的習性可通過後天學習而改變？試從文中摘錄有關句子。\n", "score-reference": [0] }
+        ],
+        "score": 2,
+        "type": "copy",
+        "answer": [
+            { "text": "木直中繩，輮以為輪，其曲中規；雖有槁暴、不復挺者，輮使之然也。", "label": "exact", "score": 2 }
+        ]
+    },
+    {
+        "QID": "CHI-勸學-009",
+        "requires": [{ "type": "knowledge", "topic": "勸學" }],
+        "question": [
+            { "text": "承上題，試說明荀子如何以此木材之喻指出學習能改變習性。\n", "score-reference": [0, 1] }
+        ],
+        "score": 3,
+        "type": "analysis",
+        "answer": [
+            { "text": "以木材比喻人，指出筆直的木材烤彎來造車輪後，便不會再次挺直。", "label": "point", "score": 1.5 },
+            { "text": "就像人經過後天學習，變惡為善後，便不會為惡，以日臻於善。", "label": "point", "score": 1.5 }
+        ]
+    },
+    {
+        "QID": "CHI-勸學-010",
+        "requires": [{ "type": "knowledge", "topic": "勸學" }],
+        "question": [
+            { "text": "根據《勸學》（節錄）內容，完成下表：\n" },
+            { "text": "「駑馬」的特點：", "score-reference": [0] },
+            { "text": "「蚯蚓」（文中空格處）的特點：", "score-reference": [1] },
+            { "text": "以此說明的道理：", "score-reference": [2, 3] }
+        ],
+        "score": 6,
+        "type": "analysis",
+        "answer": [
+            { "text": "跑得慢，卻能跑畢千里的路。", "label": "point", "score": 1 },
+            { "text": "沒有爪牙和強健筋骨，向上吃到土壤，向下喝到泉水。", "label": "point", "score": 1 },
+            { "text": "天資的高低並不重要。", "label": "point", "score": 2 },
+            { "text": "只要努力不捨、用心專一就可取得成果。", "label": "point", "score": 2 }
+        ]
+    },
+    {
+        "QID": "CHI-勸學-011",
+        "requires": [{ "type": "knowledge", "topic": "勸學" }],
+        "question": [
+            { "text": "在《勸學》（節錄）中，荀子為甚麼認為「學不可以已」？他又認為怎樣的學習態度才是正確的呢？\n", "score-reference": [0, 1, 2, 3] }
+        ],
+        "score": 6,
+        "type": "analysis",
+        "answer": [
+            { "text": "荀子認為經過學習，人能變惡為善，不再為惡，亦使人日臻於善。", "label": "point", "score": 1.5 },
+            { "text": "不斷學習可以提升智慧品格，使人博學，令自己智慧高明，不會犯錯。", "label": "point", "score": 1.5 },
+            { "text": "學習應該用心專一，並鍥而不捨地努力學習以累積知識。", "label": "point", "score": 1.5 },
+            { "text": "這樣才可增長智慧，修養品德，這才是正確的學習態度。", "label": "point", "score": 1.5 }
+        ]
+    },
+    {
+        "QID": "CHI-勸學-012",
+        "requires": [{ "type": "knowledge", "topic": "勸學" }],
+        "question": [
+            { "text": "荀子提出「學不可以已」，他勸人學習甚麼？試根據文中「君子博學而日參省乎己」及「積善成德」等內容加以說明。\n", "score-reference": [0, 1, 2] }
+        ],
+        "score": 6,
+        "type": "analysis",
+        "answer": [
+            { "text": "荀子勸人學習做人的道理，並成為一個有品德的人。", "label": "point", "score": 2 },
+            { "text": "勸人們要廣泛地學習並省察自己，使智慧高明，不會犯錯。", "label": "point", "score": 2 },
+            { "text": "著重修養品德，勸人們去惡遷善，學習做個有品德的人。", "label": "point", "score": 2 }
+        ]
+    }
+]

@@ -945,7 +945,7 @@ const GuideModal: React.FC<GuideModalProps> = ({
 									AI 設置
 								</h3>
 								<p className="text-coreMuted mt-2">
-									請粘貼你的 <b>OpenRouter</b> API 密鑰以激活
+									請粘貼你的 <b>NIM</b> API 密鑰以激活
 									<span className="whitespace-nowrap">
 										AI 閱卷功能。
 									</span>
@@ -963,7 +963,7 @@ const GuideModal: React.FC<GuideModalProps> = ({
 										onChange={(e) =>
 											setApiKey(e.target.value)
 										}
-										placeholder="sk-or-..."
+										placeholder="nvapi-..."
 										className="w-full bg-white dark:bg-darkCard border-2 border-coreBorder dark:border-darkBorder rounded-2xl px-6 py-4 outline-none focus:border-brandBlue transition-all font-mono text-sm dark:text-white"
 									/>
 									<button
@@ -1018,13 +1018,13 @@ const GuideModal: React.FC<GuideModalProps> = ({
 								<p className="text-sm text-coreMuted leading-relaxed">
 									使用{" "}
 									<a
-										href="https://openrouter.ai/"
+										href="https://build.nvidia.com/settings/api-keys"
 										target="_blank"
 										className="text-brandBlue underline font-bold"
 									>
-										OpenRouter
+										NIM
 									</a>
-									，註冊一個賬號，獲取免費的 OpenRouter API
+									，註冊一個賬號，獲取免費的 NIM API
 									密鑰，然後在此處粘貼即可。
 								</p>
 								<p className="text-sm text-coreMuted leading-relaxed">
@@ -1063,11 +1063,11 @@ const GuideModal: React.FC<GuideModalProps> = ({
 								<br />
 								詳見{" "}
 								<a
-									href="https://openrouter.ai/keys"
+									href="https://build.nvidia.com/settings/api-keys"
 									target="_blank"
 									className="text-brandBlue underline font-bold"
 								>
-									OpenRouter 密鑰管理
+									NIM 密鑰管理
 								</a>
 								。
 							</p>
