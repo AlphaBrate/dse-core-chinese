@@ -9,6 +9,7 @@ import OriginalMode from "./components/OriginalMode";
 import Layout from "./components/Layout";
 import ActivationHintModal from "./components/ActivationHintModal";
 import AIServiceHint from "./components/AIServiceHint";
+import { isAIConfigured } from "./AIService";
 
 const App: React.FC = () => {
 	const [mode, setMode] = useState<AppMode>(AppMode.Quiz);
@@ -29,11 +30,11 @@ const App: React.FC = () => {
 	>({});
 
 	useEffect(() => {
-		// Detect user_api_key in localStorage
-		const userKey = localStorage.getItem("user_api_key");
+		// 檢查是否已配置 AI 服務（OpenAI 相容）
+		const configured = isAIConfigured();
 		const hintDismissed = sessionStorage.getItem("dse_key_hint_dismissed");
 
-		if (!userKey && !hintDismissed) {
+		if (!configured && !hintDismissed) {
 			setShowKeyHint(true);
 		}
 

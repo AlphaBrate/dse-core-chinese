@@ -282,13 +282,13 @@ const QuizMode: React.FC<QuizModeProps> = ({
 			let message = "";
 
 			if (err.message.includes("is not a valid model ID")) {
-				message = `Incorrect model name. Do not attempt to modify this if you are not familiar with web development.\nTo resolve this issue, enter "localStorage.modelID = "xiaomi/mimo-v2-flash:free"" in the console and reload.`;
+				message = `模型名稱無效。請前往「統計 → API 設置」修改模型名稱，或改用其他 OpenAI 相容模型後重試。`;
 			} else if (
 				err.message.includes(
 					"SyntaxError: JSON Parse error: Unrecognized token"
 				)
 			) {
-				message = `Please try again; AI output failed. If the problem persists, please seek support or submit a problem report.\nWe're sorry, this free model may have issues.`;
+				message = `AI 回應格式異常，請重試。若問題持續，可在「API 設置」開啟「嚴格 JSON 模式」，或更換模型。`;
 			}
 
 			alert(`${err.message}\n${message}`);

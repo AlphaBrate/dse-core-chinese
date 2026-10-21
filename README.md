@@ -12,8 +12,8 @@
 * **實時評分**：利用自然語言大模型，針對學生的分析題、字詞解釋及原文摘錄進行即時評分。
 * **精準點評**：AI 能自動識別答案要點（Marking Scheme Points），並提供具體的改善建議與總結。
 
-### 📚 範文全覆蓋 (現階段僅 8/12 篇有效)
-* 內建 DSE 核心範文（由《論語》至《六國論》）的 JSON 結構化題庫。
+### 📚 範文全覆蓋（12 篇指定文言經典全收錄）
+* 內建 DSE 核心範文（由《論語》至《六國論》，含《逍遙遊》《出師表》及唐詩三首、宋詞三首）的 JSON 結構化題庫。
 * 提供精確的原文翻譯數據與考點分析。
 
 ### 📑 五大專項模式
@@ -37,7 +37,7 @@
 * **Frontend**: React 19 (ESM Mode)
 * **Styling**: Tailwind CSS
 * **Icons**: Font Awesome 6
-* **AI Engine**: NIM AI API
+* **AI Engine**: OpenAI 相容 Chat Completions（自訂端點：OpenAI / DeepSeek / NIM / 本機模型）
 * **Build System**: 無需編譯，直接透過 `index.html` 的 `importmap` 載入原生 ES Modules。
 * **Persistence**: `localStorage` (儲存學習進度、錯題集及 API Key)。
 
@@ -55,7 +55,7 @@
 │   └── ...             # 其他功能組件
 ├── data/               # 結構化題庫 (JSON)
 ├── data/source/        # 原文與翻譯數據 (JSON)
-├── geminiService.ts    # AI 服務封裝 (評分、提示、分析)
+├── AIService.ts    # AI 服務封裝 (評分、提示、分析；OpenAI 相容)
 ├── types.ts            # TypeScript 類型定義
 ├── utils.tsx           # 工具函數（如 Markdown 渲染器）
 └── index.html          # 頁面入口與全域樣式
@@ -64,16 +64,30 @@
 
 ---
 
-## 🔑 API 配置
+## 🔑 API 配置（完全 OpenAI 相容）
 
-為了使用智能閱卷功能，用戶需要配置自己的 **AI API Key**：
+為了使用智能閱卷功能，用戶需要配置自己的 **OpenAI 相容（Chat Completions）AI 服務**，所有欄位皆可自訂：
 
-1. 前往 [Nvidia NIM API](https://build.nvidia.com/settings/api-keys) 獲取免費 API Key。
-2. 點擊 App 右上角的 **統計圖示**。
-3. 切換至 **「API 設置」** 標籤。
-4. 粘貼密鑰並點擊保存。
+1. 點擊 App 右上角的 **統計圖示**。
+2. 切換至 **「API 設置」** 標籤。
+3. 填寫 **Base URL**（如 `https://api.openai.com/v1`、`https://api.deepseek.com/v1`、`http://localhost:1234/v1`）、**模型名稱** 與 **API 密鑰**（本機模型可留空），並可自訂溫度與嚴格 JSON 模式。
+4. 點擊「測試連線」確認可用後，點擊「保存配置」。
 
-> **隱私聲明**：您的 API Key 僅保存在瀏覽器的本地存儲（localStorage）中，絕不會上傳至任何第三方伺服器或 AlphaBrate 後端。
+支援 OpenAI、DeepSeek、Kimi（Moonshot）、NVIDIA NIM 及 LM Studio / Ollama 等本機服務。
+
+### 伺服器中轉架構
+
+瀏覽器直接請求雲端 AI 端點會被 **CORS** 攔截，因此所有雲端請求都改為同源
+`POST /api/relay`，由自己的伺服器中轉（伺服器端請求不受 CORS 限制）：
+
+- **開發環境**：`vite.config.ts` 內建的 `aiRelay` 中間件，`npm run dev` 即可使用。
+- **生產環境**：`api/relay.ts`（Vercel 無伺服器函數），與 dev 中間件共用同一協議。
+- **本機模型**（localhost）：瀏覽器直連，不走中轉。
+
+中轉站安全性：僅接受公開的 http(s) 端點且路徑必須以 `/chat/completions`
+結尾（防止被當作通用開放代理），並阻擋回環 / 鏈路本地 / 雲端中繼位址（SSRF 防護）。
+
+> **隱私聲明**：您的 API 密鑰及配置僅保存在瀏覽器的本地存儲（localStorage）中；發出請求時密鑰僅經由您自己的伺服器轉發至目標服務商，絕不會上傳至 AlphaBrate 後端。
 
 ---
 

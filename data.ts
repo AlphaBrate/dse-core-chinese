@@ -8,7 +8,9 @@ export const TOPIC_MAP: Record<string, string> = {
   '登樓': `${BASE_URL}data/denglou.json`,
   '論仁、論孝、論君子': `${BASE_URL}data/lunyu.json`,
   '魚我所欲也': `${BASE_URL}data/yuwosuoyuye.json`,
+  '逍遙遊': `${BASE_URL}data/xiaoyaoyou.json`,
   '勸學': `${BASE_URL}data/quanxue.json`,
+  '出師表': `${BASE_URL}data/chushibiao.json`,
   '師說': `${BASE_URL}data/shishuo.json`,
   '念奴嬌・赤壁懷古': `${BASE_URL}data/niannujiao.json`,
   '聲聲慢・秋情': `${BASE_URL}data/shengshengman.json`,
@@ -25,7 +27,9 @@ export const SOURCE_MAP: Record<string, string> = {
   '登樓': `${BASE_URL}data/source/denglou.json`,
   '論仁、論孝、論君子': `${BASE_URL}data/source/lunyu.json`,
   '魚我所欲也': `${BASE_URL}data/source/yuwosuoyuye.json`,
+  '逍遙遊': `${BASE_URL}data/source/xiaoyaoyou.json`,
   '勸學': `${BASE_URL}data/source/quanxue.json`,
+  '出師表': `${BASE_URL}data/source/chushibiao.json`,
   '師說': `${BASE_URL}data/source/shishuo.json`,
   '念奴嬌・赤壁懷古': `${BASE_URL}data/source/niannujiao.json`,
   '聲聲慢・秋情': `${BASE_URL}data/source/shengshengman.json`,
@@ -34,4 +38,30 @@ export const SOURCE_MAP: Record<string, string> = {
   '六國論': `${BASE_URL}data/source/liuguolun.json`,
 };
 
-export const TOPICS = Object.keys(TOPIC_MAP);
+export interface TopicCategory {
+  name: string;
+  topics: string[];
+}
+
+/**
+ * 十二篇範文：按文體／時代分類，便於快速檢索。
+ * 順序參照教育局建議篇章編排（先秦諸子 → 史傳 → 奏表 → 唐宋古文 → 唐詩 → 宋詞）。
+ */
+export const TOPIC_CATEGORIES: TopicCategory[] = [
+  {
+    name: "諸子百家",
+    topics: ["論仁、論孝、論君子", "魚我所欲也", "逍遙遊", "勸學"],
+  },
+  { name: "長難文", topics: ["廉頗藺相如列傳", "出師表"] },
+  {
+    name: "唐宋古文",
+    topics: ["師說", "始得西山宴遊記", "岳陽樓記", "六國論"],
+  },
+  { name: "唐詩", topics: ["山居秋暝", "月下獨酌", "登樓"] },
+  {
+    name: "宋詞",
+    topics: ["念奴嬌・赤壁懷古", "聲聲慢・秋情", "青玉案・元夕"],
+  },
+];
+
+export const TOPICS: string[] = TOPIC_CATEGORIES.flatMap((c) => c.topics);

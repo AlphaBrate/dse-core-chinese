@@ -1,6 +1,11 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { SavedResult, Question } from "../types";
 import { TOPIC_MAP } from "../data";
+import {
+  AIConfig,
+  getAIConfig,
+  testAIConnection,
+} from "../AIService";
 
 interface GuideModalProps {
 	isOpen: boolean;
@@ -20,12 +25,50 @@ const GuideModal: React.FC<GuideModalProps> = ({
 	const [isLoadingData, setIsLoadingData] = useState(false);
 	const [isExiting, setIsExiting] = useState(false);
 
-	// API Key State
-	const [apiKey, setApiKey] = useState(
-		localStorage.getItem("user_api_key") || ""
+	// OpenAI 相容配置（Base URL / API Key / 模型 / 溫度 / 嚴格 JSON）
+	const [apiKey, setApiKey] = useState(getAIConfig().apiKey);
+	const [baseUrl, setBaseUrl] = useState(getAIConfig().baseUrl);
+	const [model, setModel] = useState(getAIConfig().model);
+	const [temperature, setTemperature] = useState(
+		String(getAIConfig().temperature)
 	);
+	const [strictJson, setStrictJson] = useState(getAIConfig().strictJson);
 	const [isSaved, setIsSaved] = useState(false);
 	const [showKey, setShowKey] = useState(false);
+	const [isTesting, setIsTesting] = useState(false);
+	const [testResult, setTestResult] = useState<{
+		ok: boolean;
+		message: string;
+	} | null>(null);
+
+	// 常用 OpenAI 相容服務商快速預設（仍可完全自訂）
+	const PRESETS: { name: string; baseUrl: string; model: string }[] = [
+		{
+			name: "OpenAI",
+			baseUrl: "https://api.openai.com/v1",
+			model: "gpt-4o-mini",
+		},
+		{
+			name: "DeepSeek",
+			baseUrl: "https://api.deepseek.com/v1",
+			model: "deepseek-chat",
+		},
+		{
+			name: "Kimi",
+			baseUrl: "https://api.moonshot.cn/v1",
+			model: "moonshot-v1-8k",
+		},
+		{
+			name: "NVIDIA NIM",
+			baseUrl: "https://integrate.api.nvidia.com/v1",
+			model: "nvidia/nemotron-3-ultra-550b-a55b",
+		},
+		{
+			name: "本機 LM Studio",
+			baseUrl: "http://localhost:1234/v1",
+			model: "",
+		},
+	];
 
 	useEffect(() => {
 		if (isOpen && allQuestions.length === 0) {
@@ -59,14 +102,55 @@ const GuideModal: React.FC<GuideModalProps> = ({
 	};
 
 	const handleSaveKey = () => {
-		localStorage.setItem("user_api_key", apiKey);
+		// 寫入新版 OpenAI 相容配置鍵
+		localStorage.setItem("ai_base_url", baseUrl.trim());
+		localStorage.setItem("ai_api_key", apiKey.trim());
+		localStorage.setItem("ai_model", model.trim());
+		localStorage.setItem("ai_temperature", temperature);
+		localStorage.setItem("ai_strict_json", String(strictJson));
+		// 遷移完成後移除舊鍵
+		localStorage.removeItem("user_api_key");
+		localStorage.removeItem("modelID");
 		setIsSaved(true);
+		setTestResult(null);
 		setTimeout(() => setIsSaved(false), 2000);
 	};
 
 	const handleClearKey = () => {
+		["ai_base_url", "ai_api_key", "ai_model", "ai_temperature", "ai_strict_json"].forEach(
+			(k) => localStorage.removeItem(k)
+		);
 		localStorage.removeItem("user_api_key");
+		localStorage.removeItem("modelID");
 		setApiKey("");
+		setBaseUrl(getAIConfig().baseUrl);
+		setModel(getAIConfig().model);
+		setTemperature(String(getAIConfig().temperature));
+		setStrictJson(getAIConfig().strictJson);
+		setTestResult(null);
+	};
+
+	const handleTestConnection = async () => {
+		setIsTesting(true);
+		setTestResult(null);
+		try {
+			const partial: Partial<AIConfig> = {
+				baseUrl: baseUrl.trim(),
+				apiKey: apiKey.trim(),
+				model: model.trim(),
+				temperature: Number(temperature) || 0.7,
+				strictJson,
+			};
+			const result = await testAIConnection(partial);
+			setTestResult(result);
+		} catch (error: any) {
+			setTestResult({
+				ok: false,
+				message: error?.message || "連線測試失敗，請檢查設定。",
+			});
+		} finally {
+			setIsTesting(false);
+		}
 	};
 
 	const stats = useMemo(() => {
@@ -936,54 +1020,196 @@ const GuideModal: React.FC<GuideModalProps> = ({
 					)}
 
 					{activeTab === "api" && (
-						<div className="max-w-2xl mx-auto space-y-12 animate-in blur-in">
-							<div className="text-center mb-12">
+						<div className="max-w-2xl mx-auto space-y-10 animate-in blur-in">
+							<div className="text-center mb-8">
 								<div className="w-20 h-20 bg-brandBlue/10 text-brandBlue rounded-full flex items-center justify-center mx-auto mb-6">
 									<i className="fas fa-key text-3xl"></i>
 								</div>
 								<h3 className="text-2xl font-black dark:text-white">
 									AI 設置
 								</h3>
-								<p className="text-coreMuted mt-2">
-									請粘貼你的 <b>NIM</b> API 密鑰以激活
-									<span className="whitespace-nowrap">
-										AI 閱卷功能。
-									</span>
+								<p className="text-coreMuted mt-2 text-sm leading-relaxed">
+									支援任何{" "}
+									<b>
+										OpenAI 相容（Chat Completions）
+									</b>{" "}
+									的服務。可完全自訂 Base URL、模型與
+									API 密鑰；本機模型（LM Studio、Ollama）亦可直接使用。
 								</p>
 							</div>
 
-							<div className="glass-card bg-coreGray/20 dark:bg-white/5 border border-coreBorder dark:border-white/10 p-8">
-								<label className="block text-[0.6rem] font-black text-coreMuted uppercase tracking-widest mb-4">
-									API Key 密鑰
+							{/* 快速預設 */}
+							<div>
+								<label className="block text-[0.6rem] font-black text-coreMuted uppercase tracking-widest mb-3">
+									快速選擇服務商（仍可完全自訂）
 								</label>
-								<div className="relative group mb-8">
-									<input
-										type={showKey ? "text" : "password"}
-										value={apiKey}
-										onChange={(e) =>
-											setApiKey(e.target.value)
-										}
-										placeholder="nvapi-..."
-										className="w-full bg-white dark:bg-darkCard border-2 border-coreBorder dark:border-darkBorder rounded-2xl px-6 py-4 outline-none focus:border-brandBlue transition-all font-mono text-sm dark:text-white"
-									/>
-									<button
-										onClick={() => setShowKey(!showKey)}
-										className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center text-coreMuted hover:text-brandBlue transition-colors"
-									>
-										<i
-											className={`fas ${
-												showKey
-													? "fa-eye-slash"
-													: "fa-eye"
+								<div className="flex flex-wrap gap-2">
+									{PRESETS.map((p) => (
+										<button
+											key={p.name}
+											onClick={() => {
+												setBaseUrl(p.baseUrl);
+												setModel(p.model);
+												setTestResult(null);
+											}}
+											className={`px-4 py-2 rounded-full text-xs font-bold border transition-all duration-300 ${
+												baseUrl === p.baseUrl
+													? "bg-black text-white border-black dark:bg-white dark:text-black dark:border-white"
+													: "bg-white/50 dark:bg-transparent text-coreMuted border-coreBorder dark:border-darkBorder hover:border-coreMuted"
 											}`}
-										></i>
-									</button>
+										>
+											{p.name}
+										</button>
+									))}
+								</div>
+							</div>
+
+							{/* 配置表單 */}
+							<div className="glass-card bg-coreGray/20 dark:bg-white/5 border border-coreBorder dark:border-white/10 p-8 space-y-6">
+								<div>
+									<label className="block text-[0.6rem] font-black text-coreMuted uppercase tracking-widest mb-2">
+										Base URL 服務端點
+									</label>
+									<input
+										type="text"
+										value={baseUrl}
+										onChange={(e) => {
+											setBaseUrl(e.target.value);
+											setTestResult(null);
+										}}
+										placeholder="https://api.openai.com/v1"
+										className="w-full bg-white dark:bg-darkCard border-2 border-coreBorder dark:border-darkBorder rounded-2xl px-5 py-3.5 outline-none focus:border-brandBlue transition-all font-mono text-sm dark:text-white"
+									/>
+									<p className="text-[0.65rem] text-coreMuted mt-1.5">
+										例如 https://api.openai.com/v1 、
+										https://api.deepseek.com/v1 、
+										http://localhost:1234/v1
+									</p>
 								</div>
 
-								<div className="flex gap-4">
+								<div>
+									<label className="block text-[0.6rem] font-black text-coreMuted uppercase tracking-widest mb-2">
+										API Key 密鑰
+									</label>
+									<div className="relative group">
+										<input
+											type={showKey ? "text" : "password"}
+											value={apiKey}
+											onChange={(e) => {
+												setApiKey(e.target.value);
+												setTestResult(null);
+											}}
+											placeholder="sk-... / nvapi-...（本機服務可留空）"
+											className="w-full bg-white dark:bg-darkCard border-2 border-coreBorder dark:border-darkBorder rounded-2xl px-5 py-3.5 outline-none focus:border-brandBlue transition-all font-mono text-sm dark:text-white"
+										/>
+										<button
+											onClick={() => setShowKey(!showKey)}
+											className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center text-coreMuted hover:text-brandBlue transition-colors"
+										>
+											<i
+												className={`fas ${
+													showKey
+														? "fa-eye-slash"
+														: "fa-eye"
+												}`}
+											></i>
+										</button>
+									</div>
+								</div>
+
+								<div>
+									<label className="block text-[0.6rem] font-black text-coreMuted uppercase tracking-widest mb-2">
+										模型名稱
+									</label>
+									<input
+										type="text"
+										value={model}
+										onChange={(e) => {
+											setModel(e.target.value);
+											setTestResult(null);
+										}}
+										placeholder="gpt-4o-mini / deepseek-chat / nvidia/nemotron-..."
+										className="w-full bg-white dark:bg-darkCard border-2 border-coreBorder dark:border-darkBorder rounded-2xl px-5 py-3.5 outline-none focus:border-brandBlue transition-all font-mono text-sm dark:text-white"
+									/>
+								</div>
+
+								{/* 進階選項 */}
+								<div className="flex flex-wrap items-end gap-6">
+									<div className="flex-1 min-w-[140px]">
+										<label className="block text-[0.6rem] font-black text-coreMuted uppercase tracking-widest mb-2">
+											溫度 Temperature
+										</label>
+										<input
+											type="number"
+											min={0}
+											max={2}
+											step={0.1}
+											value={temperature}
+											onChange={(e) => {
+												setTemperature(e.target.value);
+												setTestResult(null);
+											}}
+											className="w-full bg-white dark:bg-darkCard border-2 border-coreBorder dark:border-darkBorder rounded-2xl px-5 py-3 outline-none focus:border-brandBlue transition-all font-mono text-sm dark:text-white"
+										/>
+									</div>
+									<div className="pb-1">
+										<button
+											onClick={() => {
+												setStrictJson(!strictJson);
+												setTestResult(null);
+											}}
+											className="flex items-center gap-3 select-none"
+										>
+											<span
+												className={`w-11 h-6 rounded-full transition-colors relative ${
+													strictJson
+														? "bg-brandBlue"
+														: "bg-coreGray dark:bg-white/10"
+												}`}
+											>
+												<span
+													className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow transition-all duration-300 ${
+														strictJson
+															? "left-[22px]"
+															: "left-0.5"
+													}`}
+												/>
+											</span>
+											<span className="text-xs font-bold text-coreMuted">
+												嚴格 JSON 模式
+											</span>
+										</button>
+									</div>
+								</div>
+								<p className="text-[0.65rem] text-coreMuted -mt-3">
+									嚴格 JSON 模式要求端點以 JSON
+									格式回應，可提升評分穩定性；部分本機模型不支援時請關閉。
+								</p>
+
+								{/* 測試結果 */}
+								{testResult && (
+									<div
+										className={`p-4 rounded-2xl text-sm font-medium ${
+											testResult.ok
+												? "bg-green-500/10 text-green-600 dark:text-green-400"
+												: "bg-red-500/10 text-red-500"
+										}`}
+									>
+										<i
+											className={`fas mr-2 ${
+												testResult.ok
+													? "fa-check-circle"
+													: "fa-times-circle"
+											}`}
+										></i>
+										{testResult.message}
+									</div>
+								)}
+
+								<div className="flex flex-wrap gap-4">
 									<button
 										onClick={handleSaveKey}
-										className={`flex-1 py-4 rounded-full font-bold transition-all duration-500 flex items-center justify-center gap-2 ${
+										className={`flex-1 min-w-[160px] py-4 rounded-full font-bold transition-all duration-500 flex items-center justify-center gap-2 ${
 											isSaved
 												? "bg-green-500 text-white"
 												: "bg-brandBlue text-white hover:scale-[1.02] shadow-lg shadow-brandBlue/20"
@@ -1002,31 +1228,82 @@ const GuideModal: React.FC<GuideModalProps> = ({
 										)}
 									</button>
 									<button
+										onClick={handleTestConnection}
+										disabled={isTesting}
+										className="px-6 py-4 rounded-full bg-black/5 dark:bg-white/10 font-bold text-coreText dark:text-white hover:scale-[1.02] transition-all disabled:opacity-50 flex items-center gap-2"
+									>
+										<i
+											className={`fas ${
+												isTesting
+													? "fa-circle-notch fa-spin"
+													: "fa-plug"
+											}`}
+										></i>
+										{isTesting ? "測試中…" : "測試連線"}
+									</button>
+									<button
 										onClick={handleClearKey}
-										className="px-8 py-4 rounded-full bg-coreGray dark:bg-white/10 font-bold text-coreMuted hover:text-red-500 transition-all"
+										className="px-6 py-4 rounded-full bg-coreGray dark:bg-white/10 font-bold text-coreMuted hover:text-red-500 transition-all"
 									>
 										清除
 									</button>
 								</div>
 							</div>
 
-							<div className="p-8 bg-amber-500/5 border border-amber-500/20 rounded-[32px]">
-								<h4 className="text-xs font-black text-amber-600 uppercase tracking-widest mb-3 flex items-center gap-2">
+							{/* 說明 */}
+							<div className="p-8 bg-amber-500/5 border border-amber-500/20 rounded-[32px] space-y-3">
+								<h4 className="text-xs font-black text-amber-600 uppercase tracking-widest flex items-center gap-2">
 									<i className="fas fa-info-circle"></i>{" "}
-									如何獲取密鑰？
+									如何取得密鑰？
 								</h4>
 								<p className="text-sm text-coreMuted leading-relaxed">
-									使用{" "}
-									<a
-										href="https://build.nvidia.com/settings/api-keys"
-										target="_blank"
-										className="text-brandBlue underline font-bold"
-									>
-										NIM
-									</a>
-									，註冊一個賬號，獲取免費的 NIM API
-									密鑰，然後在此處粘貼即可。
+									任選一個 OpenAI 相容服務，註冊帳號獲取
+									API 密鑰，然後填寫上方的 Base URL
+									與模型名稱即可。
 								</p>
+								<ul className="text-sm text-coreMuted leading-relaxed list-disc pl-5 space-y-1">
+									<li>
+										<b>OpenAI</b>：
+										<span className="font-mono text-[0.8rem]">
+											https://api.openai.com/v1
+										</span>
+									</li>
+									<li>
+										<b>DeepSeek</b>：
+										<span className="font-mono text-[0.8rem]">
+											https://api.deepseek.com/v1
+										</span>
+									</li>
+									<li>
+										<b>Kimi（Moonshot）</b>：
+										<span className="font-mono text-[0.8rem]">
+											https://api.moonshot.cn/v1
+										</span>
+									</li>
+									<li>
+										<b>NVIDIA NIM</b>：
+										<span className="font-mono text-[0.8rem]">
+											https://integrate.api.nvidia.com/v1
+										</span>{" "}
+										（免費額度，見
+										<a
+											href="https://build.nvidia.com/settings/api-keys"
+											target="_blank"
+											className="text-brandBlue underline font-bold"
+										>
+											build.nvidia.com
+										</a>
+										）
+									</li>
+									<li>
+										<b>本機模型</b>（LM Studio /
+										Ollama）：Base URL 填
+										<span className="font-mono text-[0.8rem]">
+											http://localhost:1234/v1
+										</span>
+										等，密鑰可留空。
+									</li>
+								</ul>
 								<p className="text-sm text-coreMuted leading-relaxed">
 									<a
 										href="https://aphbrt.web.app/dse/ai"
@@ -1037,9 +1314,9 @@ const GuideModal: React.FC<GuideModalProps> = ({
 									</a>
 								</p>
 							</div>
+
 							<p className="text-sm text-coreMuted leading-relaxed">
-								請不要提供任何已付款的 API
-								密鑰。我們不會上傳你的密鑰，它將僅保存在你本機的{" "}
+								我們不會上傳你的密鑰，它將僅保存在你本機的{" "}
 								<code className="bg-black/5 dark:bg-white/5 px-1 py-0.5 rounded">
 									localStorage
 								</code>{" "}
@@ -1060,16 +1337,6 @@ const GuideModal: React.FC<GuideModalProps> = ({
 								若瀏覽器遭受 XSS
 								攻擊或惡意擴充套件，密鑰可能被竊取（影響你的帳單與配額）。
 								建議定期輪換密鑰，並限制其權限（如設定支出上限）。
-								<br />
-								詳見{" "}
-								<a
-									href="https://build.nvidia.com/settings/api-keys"
-									target="_blank"
-									className="text-brandBlue underline font-bold"
-								>
-									NIM 密鑰管理
-								</a>
-								。
 							</p>
 						</div>
 					)}

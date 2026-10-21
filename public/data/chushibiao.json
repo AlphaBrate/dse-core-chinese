@@ -1,0 +1,400 @@
+[
+	{
+		"QID": "CHI-出師表-001",
+		"requires": [{ "type": "knowledge", "topic": "出師表" }],
+		"question": [
+			{ "text": "試解釋以下文句中的粗體字，並把答案寫在橫線上。\n" },
+			{
+				"text": "(1) 先帝創業未半，而中道**崩殂**。",
+				"score-reference": [0]
+			},
+			{ "text": "(2) 此誠危急存亡之**秋**也。", "score-reference": [1] },
+			{
+				"text": "(3) **陟**罰臧否，不宜異同。",
+				"score-reference": [2]
+			},
+			{
+				"text": "(4) 是以先帝**簡拔**以遺陛下。",
+				"score-reference": [3]
+			},
+			{ "text": "(5) 先帝不以臣**卑鄙**。", "score-reference": [4] }
+		],
+		"score": 10,
+		"type": "vocabulary",
+		"answer": [
+			{ "text": "崩殂：古代帝王去世", "label": "point", "score": 2 },
+			{ "text": "秋：時刻、時候", "label": "point", "score": 2 },
+			{ "text": "陟：提拔", "label": "point", "score": 2 },
+			{ "text": "簡拔：選拔", "label": "point", "score": 2 },
+			{
+				"text": "卑鄙：身份低微、見識淺陋",
+				"label": "point",
+				"score": 2
+			}
+		]
+	},
+	{
+		"QID": "CHI-出師表-002",
+		"requires": [{ "type": "knowledge", "topic": "出師表" }],
+		"question": [
+			{ "text": "諸葛亮勸後主廣開言路。\n" },
+			{ "text": "試摘錄原文的句子。", "score-reference": [0] }
+		],
+		"score": 2,
+		"type": "copy",
+		"answer": [
+			{
+				"text": "誠宜開張聖聽，以光先帝遺德，恢弘志士之氣。",
+				"label": "exact",
+				"remark": "標點不限。",
+				"score": 2
+			}
+		]
+	},
+	{
+		"QID": "CHI-出師表-003",
+		"requires": [{ "type": "knowledge", "topic": "出師表" }],
+		"question": [
+			{ "text": "根據《出師表》，諸葛亮認為先漢興隆、後漢傾頹的關鍵在於甚麼？\n" },
+			{
+				"text": "A 君主是否勤於政事\nB 是否親近賢臣、疏遠小人\nC 國家的兵力是否強盛\nD 法令是否嚴明",
+				"score-reference": [0]
+			}
+		],
+		"score": 2,
+		"type": "mc",
+		"answer": [{ "text": "B", "label": "point", "score": 2 }]
+	},
+	{
+		"QID": "CHI-出師表-004",
+		"requires": [{ "type": "knowledge", "topic": "出師表" }],
+		"question": [
+			{
+				"text": "諸葛亮說「宮中府中，俱為一體，陟罰臧否，不宜異同」，其用意是甚麼？",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 4,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "指出皇宮和朝廷是一個整體，賞罰標準必須一致。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "勸諫後主不要偏袒徇私，以免宮內宮外法令不一。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "可見諸葛亮主張賞罰公平、執法嚴明，體現他為國盡忠的用心。",
+				"label": "point",
+				"score": 2
+			}
+		]
+	},
+	{
+		"QID": "CHI-出師表-005",
+		"requires": [{ "type": "knowledge", "topic": "出師表" }],
+		"question": [
+			{
+				"text": "諸葛亮分別推薦了哪些文官和武將？他們有甚麼優點？",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 4,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "文官：郭攸之、費禕、董允，皆善良忠實、志慮忠純，是先帝簡拔以遺陛下的。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "武將：向寵，性行淑均、曉暢軍事，先帝稱之曰「能」，故眾議舉寵為督。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "宮中之事悉以咨之，必能裨補闕漏、有所廣益；營中之事悉以咨之，必能使行陣和睦、優劣得所。",
+				"label": "point",
+				"score": 2
+			}
+		]
+	},
+	{
+		"QID": "CHI-出師表-006",
+		"requires": [{ "type": "knowledge", "topic": "出師表" }],
+		"question": [
+			{
+				"text": "諸葛亮追述「三顧草廬」的往事，有何用意？",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 3,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "表達對先帝知遇之恩的感激。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "說明自己出仕是感念先帝禮賢下士，而非追逐名利。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "藉此勉勵後主效法先帝，禮賢下士、親信賢臣。",
+				"label": "point",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-出師表-007",
+		"requires": [{ "type": "knowledge", "topic": "出師表" }],
+		"question": [
+			{
+				"text": "「受任於敗軍之際，奉命於危難之間」主要表現諸葛亮怎樣的品格？\n"
+			},
+			{
+				"text": "A 謙遜自持\nB 知恩圖報、臨危受命\nC 恃才傲物\nD 鬱鬱不得志",
+				"score-reference": [0]
+			}
+		],
+		"score": 2,
+		"type": "mc",
+		"answer": [{ "text": "B", "label": "point", "score": 2 }]
+	},
+	{
+		"QID": "CHI-出師表-008",
+		"requires": [{ "type": "knowledge", "topic": "出師表" }],
+		"question": [
+			{
+				"text": "諸葛亮自述「苟全性命於亂世，不求聞達於諸侯」，與後文「受任於敗軍之際，奉命於危難之間」會否矛盾？試說明。",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 3,
+		"type": "analysis",
+		"answer": [
+			{ "text": "沒有矛盾。", "label": "point", "score": 1 },
+			{
+				"text": "前句寫他淡泊名利，本無意出仕。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "後句寫他感念先帝知遇之恩，才在危難之際挺身而出，兩者對比更顯其忠心。",
+				"label": "point",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-出師表-009",
+		"requires": [{ "type": "knowledge", "topic": "出師表" }],
+		"question": [
+			{
+				"text": "諸葛亮說「故五月渡瀘，深入不毛」，他為何要這樣做？",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 4,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "因為先帝臨終託付大事，他恐怕託付不效，有傷先帝的英明，故日夜憂歎。",
+				"label": "point",
+				"score": 2
+			},
+			{
+				"text": "於是不避艱險，五月渡瀘，深入不毛之地，先平定南方。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "為北定中原、興復漢室掃除後顧之憂。",
+				"label": "point",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-出師表-010",
+		"requires": [{ "type": "knowledge", "topic": "出師表" }],
+		"question": [
+			{
+				"text": "綜合全文，諸葛亮向後主提出了哪三項建議？試用自己的文句說明。",
+				"score-reference": [0, 1, 2, 3]
+			}
+		],
+		"score": 4,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "廣開言路：開張聖聽，不宜妄自菲薄、堵塞忠諫之路。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "賞罰公平：宮中府中陟罰臧否不宜異同，交由有司論其刑賞。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "親賢遠佞：親近信任貞良死節之臣，遠離小人。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "三項建議皆以繼承先帝遺德、興復漢室為依歸，可見諸葛亮忠心耿耿、思慮周詳。",
+				"label": "point",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-出師表-011",
+		"requires": [{ "type": "knowledge", "topic": "出師表" }],
+		"question": [
+			{
+				"text": "文中多次提及「先帝」，有何作用？",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 3,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "以先帝的遺德、遺詔和知遇之恩來勉勵、警醒後主。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "借先帝的言行加強勸諫的說服力，使後主易於接受。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "抒發諸葛亮對先帝的感激與追念，真情流露，感人至深。",
+				"label": "point",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-出師表-012",
+		"requires": [{ "type": "knowledge", "topic": "出師表" }],
+		"question": [
+			{ "text": "「不效，則治臣之罪，以告先帝之靈」中，「效」字的意思是甚麼？\n" },
+			{
+				"text": "A 模仿\nB 成效\nC 效勞\nD 效力",
+				"score-reference": [0]
+			}
+		],
+		"score": 2,
+		"type": "mc",
+		"answer": [{ "text": "B", "label": "point", "score": 2 }]
+	},
+	{
+		"QID": "CHI-出師表-013",
+		"requires": [{ "type": "knowledge", "topic": "出師表" }],
+		"question": [
+			{
+				"text": "在篇末，諸葛亮如何分配「討賊興復」的責任？這反映他怎樣的性格？",
+				"score-reference": [0, 1, 2, 3]
+			}
+		],
+		"score": 4,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "若討賊無效，請治臣之罪，以告先帝之靈；若無興德之言，則責攸之、禕、允等之慢，以彰其咎。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "同時囑咐陛下亦宜自謀，諮諏善道，察納雅言，深追先帝遺詔。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "諸葛亮勇於承擔責任，不推諉於人。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "對君臣上下皆有要求，可見他公忠體國、思慮周密。",
+				"label": "point",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-出師表-014",
+		"requires": [
+			{ "type": "knowledge", "topic": "出師表" },
+			{ "type": "knowledge", "topic": "廉頗藺相如列傳" }
+		],
+		"question": [
+			{
+				"text": "《出師表》中的諸葛亮與《廉頗藺相如列傳》中的藺相如，同樣以國事為重，試比較兩人的表現。",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 3,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "諸葛亮受任於敗軍之際，臨危受命，以興復漢室為己任，鞠躬盡瘁。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "藺相如完璧歸趙、澠池之會不辱使命；面對廉頗的挑釁，以「先國家之急而後私讎」為念，處處忍讓。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "兩人皆以國家利益為先，不計個人得失，表現出忠於國家的情操。",
+				"label": "point",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-出師表-015",
+		"requires": [
+			{ "type": "knowledge", "topic": "出師表" },
+			{ "type": "knowledge", "topic": "岳陽樓記" }
+		],
+		"question": [
+			{
+				"text": "《出師表》中諸葛亮「報先帝而忠陛下」與《岳陽樓記》中范仲淹「先天下之憂而憂，後天下之樂而樂」，兩者所表現的情懷有何相通之處？",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 3,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "兩者皆以天下（國家）為念，把國事置於個人之前。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "諸葛亮臨危受命、鞠躬盡瘁，以報先帝、忠陛下；范仲淹以天下為己任，先憂後樂。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "同樣體現儒家士人以天下為己任、憂國憂民的責任感。",
+				"label": "point",
+				"score": 1
+			}
+		]
+	}
+]

@@ -1,0 +1,347 @@
+[
+	{
+		"QID": "CHI-逍遙遊-001",
+		"requires": [{ "type": "knowledge", "topic": "逍遙遊" }],
+		"question": [
+			{ "text": "試解釋以下文句中的粗體字，並把答案寫在橫線上。\n" },
+			{ "text": "(1) 魏王**貽**我大瓠之種。", "score-reference": [0] },
+			{ "text": "(2) 我**樹**之成而實五石。", "score-reference": [1] },
+			{ "text": "(3) 吾為其無用而**掊**之。", "score-reference": [2] },
+			{ "text": "(4) 今一朝而**鬻**技百金。", "score-reference": [3] },
+			{ "text": "(5) 客得之，以**說**吳王。", "score-reference": [4] }
+		],
+		"score": 10,
+		"type": "vocabulary",
+		"answer": [
+			{ "text": "貽：贈送", "label": "point", "score": 2 },
+			{ "text": "樹：種植", "label": "point", "score": 2 },
+			{ "text": "掊：擊破", "label": "point", "score": 2 },
+			{ "text": "鬻：賣", "label": "point", "score": 2 },
+			{ "text": "說：遊說", "label": "point", "score": 2 }
+		]
+	},
+	{
+		"QID": "CHI-逍遙遊-002",
+		"requires": [{ "type": "knowledge", "topic": "逍遙遊" }],
+		"question": [
+			{ "text": "在《逍遙遊》中，莊子認為大樹正因「無用」而得以保全。\n" },
+			{ "text": "試摘錄有關句子。", "score-reference": [0] }
+		],
+		"score": 2,
+		"type": "copy",
+		"answer": [
+			{
+				"text": "不夭斤斧，物無害者。無所可用，安所困苦哉？",
+				"label": "exact",
+				"remark": "標點不限，少引或多引不給分。",
+				"score": 2
+			}
+		]
+	},
+	{
+		"QID": "CHI-逍遙遊-003",
+		"requires": [{ "type": "knowledge", "topic": "逍遙遊" }],
+		"question": [
+			{ "text": "「夫子固拙於用大矣」一句中，「拙於用大」的意思是甚麼？\n" },
+			{
+				"text": "A 不善於利用大的事物\nB 不善於運用大智慧\nC 拙於應付重大的任務\nD 不重視重大的利益",
+				"score-reference": [0]
+			}
+		],
+		"score": 2,
+		"type": "mc",
+		"answer": [{ "text": "A", "label": "point", "score": 2 }]
+	},
+	{
+		"QID": "CHI-逍遙遊-004",
+		"requires": [{ "type": "knowledge", "topic": "逍遙遊" }],
+		"question": [
+			{
+				"text": "在「不龜手之藥」的故事中，同一藥方有哪兩種不同的際遇？莊子藉此說明甚麼道理？",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 4,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "宋人世代用它漂洗棉絮，所得不過數金；客人把它獻給吳王，助吳王水戰大敗越人，獲封地賞賜。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "同一事物，善用與不善用，結果有天淵之別（即「所用之異」）。",
+				"label": "point",
+				"score": 2
+			},
+			{
+				"text": "說明事物本身無所謂有用無用，關鍵在於懂得善用。",
+				"label": "point",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-逍遙遊-005",
+		"requires": [{ "type": "knowledge", "topic": "逍遙遊" }],
+		"question": [
+			{
+				"text": "莊子建議惠子如何善用大瓠？這反映莊子怎樣的思想？",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 3,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "把大瓠縛在腰間當作腰舟，浮游於江湖之上。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "可見看似無用之物，只要懂得善用，也能發揮大用。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "反映莊子順應物性、靈活變通，不執着於世俗「有用」標準的思想。",
+				"label": "point",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-逍遙遊-006",
+		"requires": [{ "type": "knowledge", "topic": "逍遙遊" }],
+		"question": [
+			{ "text": "「則夫子猶有蓬之心也夫」，「蓬之心」比喻甚麼？\n" },
+			{
+				"text": "A 心思像蓬草般柔軟溫和\nB 心思閉塞不通，見識固執\nC 心思縝密，考慮周詳\nD 心胸開闊，不受束縛",
+				"score-reference": [0]
+			}
+		],
+		"score": 2,
+		"type": "mc",
+		"answer": [{ "text": "B", "label": "point", "score": 2 }]
+	},
+	{
+		"QID": "CHI-逍遙遊-007",
+		"requires": [{ "type": "knowledge", "topic": "逍遙遊" }],
+		"question": [
+			{
+				"text": "莊子以「狸狌」和「斄牛」作對比，想說明甚麼道理？",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 4,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "狸狌機巧敏捷，四處跳躍覓食，最終卻中了機關，死在羅網之中；斄牛身軀龐大，雖不能捉鼠，卻能安然無恙。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "說明一味機巧「有用」，反而容易招致禍患。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "看似「無用」的事物，只要順應其本性，反能保全自己、發揮大用。",
+				"label": "point",
+				"score": 2
+			}
+		]
+	},
+	{
+		"QID": "CHI-逍遙遊-008",
+		"requires": [{ "type": "knowledge", "topic": "逍遙遊" }],
+		"question": [
+			{
+				"text": "綜合全文，莊子透過「大瓠」和「大樗」兩個寓言，寄託了甚麼思想？",
+				"score-reference": [0, 1, 2, 3]
+			}
+		],
+		"score": 4,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "萬物各有其用，無所謂絕對的有用或無用。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "要破除「有用／無用」的成見，順應物性，靈活變通地加以運用。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "「無用之用」方為大用：如大樗正因「無用」而不遭砍伐，得以保全。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "人要擺脫功利的束縛，精神才能逍遙自在，達至「逍遙遊」的境界。",
+				"label": "point",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-逍遙遊-009",
+		"requires": [{ "type": "knowledge", "topic": "逍遙遊" }],
+		"question": [
+			{
+				"text": "試把以下句子譯為語體文：「今子有五石之瓠，何不慮以為大樽而浮於江湖？」",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 6,
+		"type": "analysis",
+		"answer": [
+			{ "text": "現在你有五石大的葫蘆", "label": "point", "score": 2 },
+			{
+				"text": "為何不考慮把它縛在腰間當作腰舟",
+				"label": "point",
+				"score": 2
+			},
+			{ "text": "浮游於江湖之上", "label": "point", "score": 2 }
+		]
+	},
+	{
+		"QID": "CHI-逍遙遊-010",
+		"requires": [{ "type": "knowledge", "topic": "逍遙遊" }],
+		"question": [
+			{
+				"text": "《逍遙遊》善用寓言說理。試舉一例，說明這種說理手法的效果。",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 3,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "例：以大瓠的寓言說明「善於用大」的道理；或以狸狌、斄牛之喻說明「無用之用」。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "把抽象的道理寄寓在具體的故事中，使道理生動易明。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "增加文章的趣味性與感染力，令人印象深刻、深思其意。",
+				"label": "point",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-逍遙遊-011",
+		"requires": [{ "type": "knowledge", "topic": "逍遙遊" }],
+		"question": [
+			{
+				"text": "惠子以「大樗」比喻莊子的言論「大而無用」。你認為莊子的回應是否恰當？試略加說明。",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 3,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "恰當。莊子以「大樗」自況，指出大樗正因「無用」才不被砍伐，得以保全。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "藉此說明自己的主張看似大而無用，實則能使人擺脫功利的束縛，逍遙自在地生活。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "莊子以寓言借題發揮，既不失幽默，又順勢闡明「無用之用」的道理，回應有力。",
+				"label": "point",
+				"remark": "言之成理即可給分。",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-逍遙遊-012",
+		"requires": [
+			{ "type": "knowledge", "topic": "逍遙遊" },
+			{ "type": "knowledge", "topic": "勸學" }
+		],
+		"question": [
+			{
+				"text": "《逍遙遊》與《勸學》都談及人應如何處世，兩者的主張有何不同？",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 3,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "莊子主張順應自然、無為逍遙，認為「無用之用」才是保全之道。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "荀子主張積極學習、改造本性，藉後天努力增長智慧、修養品德。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "兩者分別體現道家超脫物外與儒家積極進取的不同人生取向。",
+				"label": "point",
+				"score": 1
+			}
+		]
+	},
+	{
+		"QID": "CHI-逍遙遊-013",
+		"requires": [{ "type": "knowledge", "topic": "逍遙遊" }],
+		"question": [
+			{
+				"text": "「何不樹之於無何有之鄉，廣莫之野」中，「無何有之鄉」的意思是甚麼？\n"
+			},
+			{
+				"text": "A 荒涼貧瘠的地方\nB 一無所有、空闊無垠的地方\nC 沒有人耕種的地方\nD 沒有收成的地方",
+				"score-reference": [0]
+			}
+		],
+		"score": 2,
+		"type": "mc",
+		"answer": [{ "text": "B", "label": "point", "score": 2 }]
+	},
+	{
+		"QID": "CHI-逍遙遊-014",
+		"requires": [{ "type": "knowledge", "topic": "逍遙遊" }],
+		"question": [
+			{
+				"text": "「能不龜手一也；或以封，或不免於洴澼絖，則所用之異也」一句在文中有何作用？",
+				"score-reference": [0, 1, 2]
+			}
+		],
+		"score": 3,
+		"type": "analysis",
+		"answer": [
+			{
+				"text": "以同一藥方，有人獲封賞、有人仍漂洗棉絮作對比，具體說明「所用之異」。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "承接上文「拙於用大」之論，印證善用與不善用結果迥異。",
+				"label": "point",
+				"score": 1
+			},
+			{
+				"text": "為下文勸惠子把大瓠作腰舟、善用其「大」作鋪墊。",
+				"label": "point",
+				"score": 1
+			}
+		]
+	}
+]

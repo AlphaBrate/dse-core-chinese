@@ -1,6 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { AppMode, SavedResult } from "../types";
 import GuideModal from "./GuideModal";
+import { TOPIC_CATEGORIES } from "../data";
 
 interface LayoutProps {
 	children: React.ReactNode;
@@ -28,12 +29,17 @@ const Layout: React.FC<LayoutProps> = ({
 	setIsGuideOpen,
 }) => {
 	const [isDark, setIsDark] = useState(false);
-	const [showLeftFade, setShowLeftFade] = useState(false);
-	const [showRightFade, setShowRightFade] = useState(false);
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-	const scrollRef = useRef<HTMLDivElement>(null);
+	// 範文分類：預設顯示全部，可按文體／時代快速篩選
+	const [activeCategory, setActiveCategory] = useState("全部");
 
 	const hideTopicBar = mode === AppMode.Mistakes;
+
+	const visibleTopics =
+		activeCategory === "全部"
+			? topics
+			: (TOPIC_CATEGORIES.find((c) => c.name === activeCategory)
+					?.topics ?? topics);
 
 	useEffect(() => {
 		if (
@@ -48,27 +54,6 @@ const Layout: React.FC<LayoutProps> = ({
 			setIsDark(false);
 		}
 	}, []);
-
-	const updateScrollFades = () => {
-		const el = scrollRef.current;
-		if (el) {
-			setShowLeftFade(el.scrollLeft > 10);
-			setShowRightFade(
-				el.scrollLeft < el.scrollWidth - el.clientWidth - 10
-			);
-		}
-	};
-
-	useEffect(() => {
-		if (!hideTopicBar) {
-			const timer = setTimeout(updateScrollFades, 200);
-			window.addEventListener("resize", updateScrollFades);
-			return () => {
-				window.removeEventListener("resize", updateScrollFades);
-				clearTimeout(timer);
-			};
-		}
-	}, [topics, selectedTopic, hideTopicBar]);
 
 	const toggleDark = () => {
 		if (isDark) {
@@ -216,38 +201,49 @@ const Layout: React.FC<LayoutProps> = ({
 			/>
 
 			<div
-				className={`bg-coreBg dark:bg-darkBg border-b border-coreBorder dark:border-darkBorder relative overflow-hidden transition-all duration-700 ${
+				className={`bg-coreBg dark:bg-darkBg border-b border-coreBorder dark:border-darkBorder overflow-hidden transition-all duration-700 ${
 					hideTopicBar
-						? "max-h-0 opacity-0 py-0"
-						: "max-h-[200px] opacity-100 py-0"
+						? "max-h-0 opacity-0"
+						: "max-h-[520px] opacity-100"
 				}`}
 			>
 				{!hideTopicBar && (
-					<div className="container mx-auto relative">
-						<div
-							className={`absolute left-0 top-0 bottom-0 w-16 z-20 pointer-events-none bg-gradient-to-r from-coreBg dark:from-darkBg to-transparent transition-opacity duration-500 ${
-								showLeftFade ? "opacity-100" : "opacity-0"
-							}`}
-						></div>
-						<div
-							className={`absolute right-0 top-0 bottom-0 w-16 z-20 pointer-events-none bg-gradient-to-l from-coreBg dark:from-darkBg to-transparent transition-opacity duration-500 ${
-								showRightFade ? "opacity-100" : "opacity-0"
-							}`}
-						></div>
+					<div className="container mx-auto px-4 py-4">
+						{/* 文體分類列 */}
+						<div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+							<span className="text-[0.6rem] font-black uppercase tracking-widest text-coreMuted select-none mr-0.5">
+								範文
+							</span>
+							{["全部", ...TOPIC_CATEGORIES.map((c) => c.name)].map(
+								(cat) => (
+									<button
+										key={cat}
+										onClick={() => setActiveCategory(cat)}
+										className={`px-3 sm:px-4 py-1.5 rounded-full text-[0.65rem] sm:text-xs font-bold tracking-tight transition-all duration-500 ease-liquid whitespace-nowrap border ${
+											activeCategory === cat
+												? "bg-black text-white border-black dark:bg-white dark:text-black dark:border-white shadow-[0_6px_16px_rgba(0,0,0,0.12)]"
+												: "bg-white/50 dark:bg-transparent text-coreMuted border-coreBorder dark:border-darkBorder hover:border-coreMuted hover:bg-white dark:hover:bg-white/5"
+										}`}
+									>
+										{cat}
+									</button>
+								)
+							)}
+						</div>
 
+						{/* 篇章列：按當前分類篩選，改為自動換行，避免長條橫向滾動 */}
 						<div
-							ref={scrollRef}
-							onScroll={updateScrollFades}
-							className="flex gap-3 overflow-x-auto minimal-scrollbar items-center py-5 relative scroll-smooth no-scrollbar md:scrollbar-thin px-2"
-							style={{ scrollbarWidth: "none" }}
+							key={activeCategory}
+							className="mt-3 flex flex-wrap gap-2 animate-in blur-in"
+							style={{ animationDuration: "400ms" }}
 						>
-							{topics.map((topic) => (
+							{visibleTopics.map((topic) => (
 								<button
 									key={topic}
 									onClick={() => setSelectedTopic(topic)}
-									className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-500 ease-liquid whitespace-nowrap text-center border shrink-0 ${
+									className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-500 ease-liquid whitespace-nowrap text-center border ${
 										selectedTopic === topic
-											? "bg-black text-white border-black dark:bg-white dark:text-black dark:border-white shadow-[0_10px_20px_rgba(0,0,0,0.1)] -translate-y-0.5 scale-105 mx-1"
+											? "bg-black text-white border-black dark:bg-white dark:text-black dark:border-white shadow-[0_10px_20px_rgba(0,0,0,0.1)] -translate-y-0.5 scale-105"
 											: "bg-white/50 dark:bg-transparent text-coreMuted border-coreBorder dark:border-darkBorder hover:border-coreMuted hover:bg-white dark:hover:bg-white/5"
 									}`}
 								>

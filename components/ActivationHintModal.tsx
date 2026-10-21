@@ -24,14 +24,15 @@ const ActivationHintModal: React.FC<ActivationHintModalProps> = ({ onClose, onCo
           <i className="fas fa-brain text-3xl"></i>
         </div>
         
-        <h3 className="text-2xl font-black dark:text-white tracking-tight mb-4">AI 服務不可用</h3>
+        <h3 className="text-2xl font-black dark:text-white tracking-tight mb-4">AI 服務未配置</h3>
         
         <div className="space-y-4 text-coreMuted font-medium leading-relaxed mb-10 text-left">
           <p>
-            你尚未設置 API 密鑰。
+            你尚未配置 AI 服務。
           </p>
           <p className="text-sm">
-            請點擊導航欄右上角的 <b>統計圖示</b>，進入 <b>「API 設置」</b> 頁面粘貼你的密鑰以啟用智能閱卷功能。
+            請點擊導航欄右上角的 <b>統計圖示</b>，進入 <b>「API 設置」</b> 填寫
+            Base URL、模型與 API 密鑰（支援任何 OpenAI 相容服務）以啟用智能閱卷功能。
           </p>
         </div>
 
